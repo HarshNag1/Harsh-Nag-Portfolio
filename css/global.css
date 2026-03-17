@@ -1,0 +1,346 @@
+/* -------------------------------------------------------------
+   GLOBAL VARIABLES — ORANGE/YELLOW THEME (AWWWARDS TIER)
+------------------------------------------------------------- */
+:root {
+    /* Dark Background */
+    --bg-dark: #0a0a0e;
+    --bg-surface: #111116;
+    --text-main: #f5f5f0;
+    --text-muted: #7a7a85;
+    --text-accent: #c8c8c0;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    /* Neumorphism */
+    --neu-shadow: -4px -4px 10px rgba(255,255,255,0.05), 4px 4px 15px rgba(0,0,0,0.9);
+    --neu-shadow-inset: inset -4px -4px 10px rgba(255,255,255,0.03), inset 4px 4px 15px rgba(0,0,0,0.9);
+
+    /* ✅ BRAND COLORS — DO NOT CHANGE */
+    --brand-primary: #ff5e00;
+    --brand-secondary: #ffb800;
+    --brand-gradient: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+
+    /* Awwwards Font Stack */
+    --font-display: 'Bebas Neue', sans-serif;      /* H1 / Big headings */
+    --font-accent: 'Cormorant Garamond', serif;    /* Taglines / italic accents */
+    --font-body: 'DM Sans', sans-serif;            /* All body copy */
+    --font-mono: 'JetBrains Mono', monospace;      /* Technical labels / years */
+
+    /* Spacing Scale */
+    --space-xs: 0.4rem;
+    --space-sm: 0.8rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+
+    /* Layout */
+    --container-width: 1240px;
+    --section-padding: var(--space-xl) 0;
+    --sidebar-width: 220px;
+
+    /* Missing aliases (used in older CSS files) */
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --font-heading: 'Bebas Neue', sans-serif;   /* alias for --font-display */
+}
+
+/* -------------------------------------------------------------
+   RESET & BASE
+------------------------------------------------------------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image:
+        radial-gradient(ellipse at 10% 60%, rgba(255, 94, 0, 0.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 20%, rgba(255, 184, 0, 0.03) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Hide default cursor — custom cursor active */
+    cursor: none;
+}
+
+main {
+    margin-left: var(--sidebar-width);
+}
+
+/* -------------------------------------------------------------
+   CUSTOM CURSOR
+------------------------------------------------------------- */
+.cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 5px; height: 5px;
+    background: var(--brand-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s, opacity 0.3s, background 0.3s, width 0.3s, height 0.3s;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    width: 24px; height: 24px;
+    border: 1px solid rgba(255, 94, 0, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s,
+                background 0.35s,
+                opacity 0.35s;
+    mix-blend-mode: plus-lighter;
+}
+
+/* Cursor hover states (added via JS) */
+body.cursor-hover .cursor-dot {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+body.cursor-hover .cursor-ring {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 94, 0, 0.08);
+    border-color: var(--brand-secondary);
+}
+
+/* Restore cursor for inputs */
+input, textarea, select {
+    cursor: text;
+}
+a, button, [role="button"] {
+    cursor: none;
+}
+
+/* -------------------------------------------------------------
+   LAYOUT UTILITIES
+------------------------------------------------------------- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* Do NOT set global section padding — each section sets its own */
+
+/* -------------------------------------------------------------
+   TYPOGRAPHY — AWWWARDS TIER
+------------------------------------------------------------- */
+
+/* Display headings — Bebas Neue: impactful but proportional */
+h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+
+/* Sub-headings — DM Sans, cleaner */
+h3, h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+h5, h6 {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Accent / tagline italic — Cormorant Garamond */
+.text-accent-italic {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--text-accent);
+    letter-spacing: 0.01em;
+}
+
+/* Mono labels */
+.text-mono {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* Brand gradient text */
+.style-gradient {
+    background: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Outlined "ghost" heading — for section anchors */
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.2);
+    transition: -webkit-text-stroke 0.4s ease, text-shadow 0.4s ease;
+}
+.outline-text:hover {
+    -webkit-text-stroke: 1.5px var(--brand-primary);
+    text-shadow: 0 0 30px rgba(255, 94, 0, 0.2);
+}
+
+/* Legacy aliases — keep for backwards compat */
+.holo-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+}
+.holo-text:hover {
+    -webkit-text-stroke: 1.5px var(--brand-primary);
+    text-shadow: 0 0 30px rgba(255, 94, 0, 0.25);
+}
+.holo-gradient {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p, a, span, li {
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+/* -------------------------------------------------------------
+   SECTION HEADINGS
+------------------------------------------------------------- */
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 0.95;
+    margin-bottom: var(--space-lg);
+    letter-spacing: 0.03em;
+}
+
+.section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-primary);
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+/* -------------------------------------------------------------
+   BUTTONS — NEUMORPHIC
+------------------------------------------------------------- */
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 2.2rem;
+    background: var(--brand-gradient);
+    color: #000;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 94, 0, 0.35);
+}
+
+/* -------------------------------------------------------------
+   VIEWPORT FADE ANIMATIONS
+------------------------------------------------------------- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Support both .in-view (old) and .revealed (new observer) */
+.fade-up.in-view,
+.fade-up.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered children */
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-up:nth-child(4) { transition-delay: 0.3s; }
+.fade-up:nth-child(5) { transition-delay: 0.4s; }
+
+/* -------------------------------------------------------------
+   TEXT SELECTION
+------------------------------------------------------------- */
+::selection {
+    background: var(--brand-primary);
+    color: #fff;
+}
+
+/* -------------------------------------------------------------
+   CUSTOM SCROLLBAR — minimal, doesn't ruin the look
+------------------------------------------------------------- */
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 94, 0, 0.15) transparent;
+}
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  {
+    background: rgba(255, 94, 0, 0.15);
+    border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 94, 0, 0.4);
+}
+
+
+/* -------------------------------------------------------------
+   RESPONSIVE
+------------------------------------------------------------- */
+@media (max-width: 1200px) {
+    .container { padding: 0 3rem; }
+}
+@media (max-width: 900px) {
+    .container { padding: 0 1.5rem; }
+    section { padding: 5rem 0; }
+    .section-heading { font-size: clamp(2.5rem, 10vw, 4rem); }
+    main { margin-left: 0; }
+    /* Restore cursor on touch devices */
+    body { cursor: auto; }
+    .cursor-dot, .cursor-ring { display: none; }
+}

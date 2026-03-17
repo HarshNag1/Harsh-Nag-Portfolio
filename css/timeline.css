@@ -1,0 +1,301 @@
+/* -------------------------------------------------------------
+   HORIZONTAL JOURNEY SECTION
+------------------------------------------------------------- */
+.journey-wrapper {
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 107, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.1);
+    position: relative;
+}
+
+/* Base horizontal track */
+.journey-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+/* Animated progress line */
+.journey-progress-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100vw;
+    height: 2px;
+    background: var(--brand-gradient);
+    z-index: 2;
+    transform-origin: left;
+    transform: scaleX(var(--journey-progress, 0));
+    /* updated via JS */
+}
+
+/* ✦ Sparkle — 4-pointed star at the tip of progress line */
+.journey-sparkle {
+    position: absolute;
+    top: 50%;
+    left: 0;                          /* driven by JS */
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    z-index: 2;                       /* BELOW the cards (z-index:3) */
+    pointer-events: none;
+    background: radial-gradient(
+        circle,
+        rgba(255, 184, 0, 1) 0%,
+        rgba(255, 94, 0, 0.8) 30%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: sparkleRotate 3s linear infinite;
+    box-shadow:
+        0 0 4px 1px rgba(255, 94, 0, 0.9),
+        0 0 8px 3px rgba(255, 184, 0, 0.35);
+}
+
+/* Horizontal beam */
+.journey-sparkle::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: -5px;
+    width: calc(100% + 10px);
+    height: 1px;
+    transform: translateY(-50%);
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 184, 0, 0.9) 35%,
+        #fff 50%,
+        rgba(255, 184, 0, 0.9) 65%,
+        transparent 100%
+    );
+    border-radius: 100px;
+}
+
+/* Vertical beam */
+.journey-sparkle::after {
+    content: '';
+    position: absolute;
+    top: -5px; left: 50%;
+    width: 1px;
+    height: calc(100% + 10px);
+    transform: translateX(-50%);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255, 184, 0, 0.9) 35%,
+        #fff 50%,
+        rgba(255, 184, 0, 0.9) 65%,
+        transparent 100%
+    );
+    border-radius: 100px;
+}
+
+@keyframes sparkleRotate {
+    0%   { transform: translate(-50%, -50%) rotate(0deg)   scale(1);    }
+    25%  { transform: translate(-50%, -50%) rotate(45deg)  scale(1.15); }
+    50%  { transform: translate(-50%, -50%) rotate(0deg)   scale(1);    }
+    75%  { transform: translate(-50%, -50%) rotate(-45deg) scale(1.15); }
+    100% { transform: translate(-50%, -50%) rotate(0deg)   scale(1);    }
+}
+
+.journey-container {
+    display: flex;
+    width: max-content;
+    /* Let contents dictate width */
+    height: 100vh;
+    min-height: 600px;
+    align-items: center;
+    position: relative;
+    z-index: 3; /* renders above sparkle */
+}
+
+.journey-panel {
+    width: 60vw;
+    /* Default panel width */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4rem;
+    flex-shrink: 0;
+}
+
+.title-panel {
+    width: 100vw;
+    /* Take up the first full screen to introduce */
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10vw;
+}
+
+.journey-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 400;
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-main);
+}
+
+.journey-sub {
+    font-family: var(--font-accent);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--brand-secondary);
+    margin-top: 1.2rem;
+    letter-spacing: 0.04em;
+}
+
+.scroll-indicator {
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    color: var(--brand-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: bounceRight 2s infinite;
+}
+
+@keyframes bounceRight {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(15px);
+    }
+}
+
+/* Cinematic Cards using Glassmorphism */
+.journey-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 3.5rem;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 85, 0, 0.4);
+    /* Glow effect on interactive highlight */
+    box-shadow: 0 25px 60px rgba(255, 85, 0, 0.1);
+}
+
+.j-year {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--brand-primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.j-title {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+}
+
+.j-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.huge-panel {
+    width: 90vw;
+}
+
+.expanded-card {
+    max-width: 900px;
+}
+
+.j-stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.j-stat-box h4 {
+    font-family: var(--font-mono);
+    color: var(--brand-secondary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.j-stat-box ul {
+    list-style: none;
+}
+
+.j-stat-box ul li {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.j-stat-box ul li::before {
+    content: '→';
+    color: var(--brand-primary);
+}
+
+.spacer-panel {
+    width: 50vw;
+    /* Provide blank space to allow scrolling out */
+}
+
+@media (max-width: 900px) {
+
+    /* Stack vertically on mobile to preserve UX */
+    .journey-wrapper {
+        height: auto;
+    }
+
+    .journey-container {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 5rem 0;
+    }
+
+    .journey-wrapper::before,
+    .journey-progress-line {
+        display: none;
+    }
+
+    .journey-panel {
+        width: 100%;
+        padding: 2rem;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .title-panel {
+        width: 100%;
+        padding-left: 2rem;
+    }
+
+    .j-stats-container {
+        grid-template-columns: 1fr;
+    }
+}

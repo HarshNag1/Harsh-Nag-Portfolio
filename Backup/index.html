@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Nag | Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <h1 class="loader-logo">HN.</h1>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <p class="loader-text">INITIALIZING SYSTEMS...</p>
+        </div>
+    </div>
+
+    <!-- 3D Background Canvas -->
+    <div id="canvas-container"></div>
+
+    <header class="header">
+        <div class="logo">HN.</div>
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
+            <a href="./Harsh%20Nag%20CV/CV_202512220944560614_12307324%20(1).pdf" target="_blank">Resume</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="container hero-section">
+            <div class="hero-text-container">
+                <h1 class="hero-title">
+                    <span class="highlight-name">Harsh Nag</span> is a Computer Science student building
+                    <span class="highlight-ai">AI-driven systems</span> and
+                    <span class="highlight-cyber">cybersecurity solutions</span> that make digital environments smarter
+                    and more secure.
+                </h1>
+                <p class="hero-subtitle">Cybersecurity &bull; AI Systems &bull; Automation</p>
+            </div>
+            <div class="profile-container">
+                <img src="./Images/harsh.png" alt="Harsh Nag" class="profile-img">
+            </div>
+        </section>
+
+        <!-- Content Sections Wrapper (Dark Overlay) -->
+        <div class="content-overlay">
+
+
+            <!-- About & Skills Section -->
+            <section id="about" class="container">
+                <h2 class="section-title">01 / Profile & Capabilities</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            I am dedicated to engineering resilient systems at the intersection of Artificial
+                            Intelligence and Cybersecurity. My focus is on creating automated, secure environments that
+                            scale efficiently while maintaining structural integrity.
+                        </p>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-category">
+                            <h3>Development</h3>
+                            <p>Python, Java, C++, JavaScript</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Cybersecurity</h3>
+                            <p>OSINT, Metasploit, Nmap, Network Security</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Infrastructure & Tools</h3>
+                            <p>Kali Linux, AWS, Nessus, Wireshark, MySQL</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="container">
+                <h2 class="section-title">02 / Selected Works</h2>
+                <div class="projects-container">
+
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">AI-Powered OS Automation</h3>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-desc">Laptop OS automation assistant leveraging AI for seamless system
+                            management. Capable of executing daily maintenance routines and intelligently parsing
+                            natural language voice/text commands.</p>
+                        <div class="project-tags">
+                            <span>Python</span><span>Bash</span><span>AI</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Smart Attendance & Exam Monitoring</h3>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <p class="project-desc">An integrity-first examination monitoring system utilizing visual AI to
+                            ensure secure testing environments. Features real-time facial recognition and behavioral
+                            anomaly detection.</p>
+                        <div class="project-tags">
+                            <span>OpenCV</span><span>Python</span><span>AWS</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Learning Disabilities Detection</h3>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <p class="project-desc">A highly accurate machine learning system designed to detect early signs
+                            of learning disabilities, achieving 95% classification accuracy. Integrated with a secure
+                            screening dashboard.</p>
+                        <div class="project-tags">
+                            <span>Python</span><span>Scikit-Learn</span><span>React</span>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Credentials & Contact -->
+            <section id="contact" class="container">
+                <h2 class="section-title">03 / Credentials & Contact</h2>
+
+                <div class="credentials-grid">
+                    <div>
+                        <h3 class="subsection-title">Achievements</h3>
+                        <ul class="clean-list">
+                            <li><strong>Hackathon Winner:</strong> 1st Place in Regional Cybersecurity Challenge</li>
+                            <li><strong>Patent Accepted:</strong> Architectures for Intelligent Security Systems</li>
+                            <li><strong>CTF Competitions:</strong> Top Percentile Ranking</li>
+                            <li><strong>AI/ML Bootcamp:</strong> Outstanding Performer Award</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="subsection-title">Certifications</h3>
+                        <ul class="clean-list">
+                            <li>CompTIA Security+</li>
+                            <li>Cisco CCNA</li>
+                            <li>AWS Solutions Architect</li>
+                            <li>Linux Professional (LPIC-1)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <h2 class="footer-title">Let's build secure infrastructure together.</h2>
+                    <div class="footer-links">
+                        <a href="mailto:contact@example.com" class="footer-link">Email</a>
+                        <a href="#" class="footer-link">LinkedIn</a>
+                        <a href="#" class="footer-link">GitHub</a>
+                        <a href="./Harsh%20Nag%20CV/CV_202512220944560614_12307324%20(1).pdf" target="_blank"
+                            class="footer-link">Resume</a>
+                    </div>
+                    <div class="copyright">&copy; Harsh Nag 2024. All algorithms intact.</div>
+                </footer>
+            </section>
+
+        </div> <!-- End of content-overlay -->
+
+    </main>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Modular JS -->
+    <script src="js/background.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

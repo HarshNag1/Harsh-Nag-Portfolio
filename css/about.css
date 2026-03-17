@@ -1,0 +1,153 @@
+/* =============================================================
+   ABOUT SECTION — Bold statement layout
+============================================================= */
+.about-section {
+    padding: 5rem 0;
+    border-top: 1px solid rgba(255, 107, 0, 0.08);
+}
+
+.about-header {
+    margin-bottom: 3rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+/* Left — big statement text */
+.about-statement {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.about-big-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    line-height: 1.05;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+.about-big-text em {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 0.78em;
+    color: var(--brand-primary);
+    text-transform: none;
+    letter-spacing: 0.01em;
+}
+
+/* Right — detail + tags */
+.about-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+.about-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: border-color 0.3s, color 0.3s;
+}
+.about-tag:hover {
+    border-color: rgba(255, 94, 0, 0.3);
+    color: var(--brand-primary);
+}
+
+/* ============================================================
+   HORIZONTAL TECH STACK
+============================================================= */
+.horizontal-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 107, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.08);
+}
+
+.horizontal-container {
+    display: flex;
+    will-change: transform;
+}
+
+.horizontal-panel {
+    min-width: 100vw;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-content {
+    max-width: var(--container-width);
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.panel-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 2.5rem;
+    color: var(--text-main);
+    letter-spacing: 0.03em;
+}
+
+/* Tech skill cards */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-main);
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s, transform 0.3s;
+}
+.tech-card:hover {
+    border-color: rgba(255, 94, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.tech-icon {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--brand-primary);
+    background: rgba(255, 94, 0, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-big-text { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+}
