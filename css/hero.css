@@ -159,6 +159,12 @@
     display: flex;
     flex-direction: column;
 }
+/* Number + suffix on same line */
+.stat-value {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+}
 .stat-number {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -167,10 +173,9 @@
 }
 .stat-suffix {
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     color: var(--brand-primary);
     line-height: 1;
-    display: inline;
 }
 .stat-label {
     font-family: var(--font-mono);
@@ -358,6 +363,7 @@
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-main);
+    text-align: center;
 }
 
 /* ---- Scroll Down indicator ---- */
@@ -398,16 +404,23 @@
         grid-template-columns: 1fr;
         gap: 3rem;
         padding-top: 1rem;
+        text-align: center;
     }
     .hero-right { order: -1; max-width: 340px; margin: 0 auto; }
     .hero-image-frame { max-width: 300px; }
     .top-card  { left: -5%; top: 5%; }
     .bottom-card { right: -5%; }
     .hero-title { font-size: clamp(3rem, 12vw, 5rem); }
-    .hero-stats { gap: 1.5rem; }
+    .hero-stats { justify-content: center; gap: 1.5rem; }
+    .hero-buttons { justify-content: center; }
 }
 @media (max-width: 600px) {
-    .hero-float-card { display: none; }
-    .hero-stats { gap: 1rem; }
-    .social-links { gap: 1.2rem; }
+    .hero-float-card { 
+        transform: scale(0.85); 
+        padding: 0.8rem;
+    }
+    .top-card { left: -10%; top: -2%; }
+    .bottom-card { right: -10%; bottom: -5%; }
+    .hero-stats { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .social-links { gap: 1.2rem; justify-content: center; }
 }

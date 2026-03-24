@@ -79,22 +79,26 @@
 ============================================================= */
 .horizontal-wrapper {
     position: relative;
-    overflow: hidden;
     border-top: 1px solid rgba(255, 107, 0, 0.08);
     border-bottom: 1px solid rgba(255, 107, 0, 0.08);
 }
 
 .horizontal-container {
     display: flex;
-    will-change: transform;
+    flex-direction: column;
+    will-change: unset;
 }
 
 .horizontal-panel {
-    min-width: 100vw;
-    padding: 4rem 0;
+    width: 100%;
+    padding: 5rem 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.horizontal-panel:last-child {
+    border-bottom: none;
 }
 
 .panel-content {
@@ -147,7 +151,65 @@
     letter-spacing: 0.05em;
 }
 
+
+/* ── Arsenal Panel — Categorised Grid ─────────────────────────── */
+.arsenal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.arsenal-group {
+    background: rgba(255, 94, 0, 0.03);
+    border: 1px solid rgba(255, 94, 0, 0.1);
+    border-left: 2px solid rgba(255, 94, 0, 0.5);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.3s, background 0.3s;
+}
+.arsenal-group:hover {
+    background: rgba(255, 94, 0, 0.06);
+    border-left-color: var(--brand-primary);
+}
+
+.arsenal-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-secondary);
+    margin-bottom: 0.55rem;
+    font-weight: 600;
+}
+
+.arsenal-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.arsenal-pill {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    padding: 0.2rem 0.65rem;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+    cursor: default;
+}
+.arsenal-pill:hover {
+    border-color: rgba(255, 94, 0, 0.45);
+    color: var(--brand-secondary);
+    background: rgba(255, 94, 0, 0.07);
+}
+
 @media (max-width: 768px) {
+    .arsenal-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .about-big-text { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+    .horizontal-panel { padding: 2.5rem 0; }
 }

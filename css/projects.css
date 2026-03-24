@@ -17,18 +17,24 @@
     grid-template-columns: 80px 1fr auto;
     gap: 2.5rem;
     align-items: center;
-    padding: 2.5rem 0;
+    padding: 2.5rem 1.5rem;
+    margin: 0 -1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     text-decoration: none;
     color: inherit;
-    transition: background 0.35s ease, padding 0.35s ease;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
+    border-radius: 12px;
+    will-change: transform, box-shadow;
 }
 
 .project-item:hover {
-    background: rgba(255, 184, 0, 0.025);
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    background: rgba(255, 94, 0, 0.03);
+    border-bottom-color: transparent;
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    position: relative;
 }
 
 .placeholder-item {

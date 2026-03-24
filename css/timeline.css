@@ -6,6 +6,7 @@
     border-top: 1px solid rgba(255, 107, 0, 0.1);
     border-bottom: 1px solid rgba(255, 107, 0, 0.1);
     position: relative;
+    z-index: 1; /* Establish stacking context */
 }
 
 /* Base horizontal track */
@@ -17,7 +18,7 @@
     width: 100%;
     height: 2px;
     background: rgba(255, 255, 255, 0.05);
-    z-index: 1;
+    z-index: 0; /* Base track at bottom */
 }
 
 /* Animated progress line */
@@ -28,7 +29,7 @@
     width: 100vw;
     height: 2px;
     background: var(--brand-gradient);
-    z-index: 2;
+    z-index: 1; /* Progress line above base track but below cards */
     transform-origin: left;
     transform: scaleX(var(--journey-progress, 0));
     /* updated via JS */
@@ -42,7 +43,7 @@
     transform: translate(-50%, -50%);
     width: 14px;
     height: 14px;
-    z-index: 2;                       /* BELOW the cards (z-index:3) */
+    z-index: 2;                       /* BELOW the cards (z-index:10) */
     pointer-events: none;
     background: radial-gradient(
         circle,
@@ -111,7 +112,7 @@
     min-height: 600px;
     align-items: center;
     position: relative;
-    z-index: 3; /* renders above sparkle */
+    z-index: 10; /* renders strictly above sparkle and line */
 }
 
 .journey-panel {
@@ -126,8 +127,8 @@
 }
 
 .title-panel {
-    width: 100vw;
-    /* Take up the first full screen to introduce */
+    width: 50vw;
+    /* Reduced so first card appears sooner */
     flex-direction: column;
     align-items: flex-start;
     padding-left: 10vw;
@@ -275,7 +276,7 @@
         width: 100%;
         height: auto;
         flex-direction: column;
-        padding: 5rem 0;
+        padding: 2rem 0;
     }
 
     .journey-wrapper::before,
@@ -292,7 +293,7 @@
 
     .title-panel {
         width: 100%;
-        padding-left: 2rem;
+        padding: 0 2rem;
     }
 
     .j-stats-container {

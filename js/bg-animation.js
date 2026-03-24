@@ -4,24 +4,41 @@
 // ============================================================
 
 (function initBackground() {
+    // 1. MIDDLE LAYER: Soft Gradient Glow
+    const glowLayer = document.createElement('div');
+    glowLayer.id = 'bg-glow';
+    glowLayer.style.cssText = `
+        position: fixed;
+        top: -20%; left: -20%;
+        width: 140%; height: 140%;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(circle at 50% 50%, rgba(255, 94, 0, 0.045) 0%, rgba(255, 184, 0, 0.015) 35%, transparent 60%);
+        opacity: 0.8;
+        will-change: transform;
+    `;
+    document.body.insertBefore(glowLayer, document.body.firstChild);
+
+    // 2. BACK LAYER: Neural Network Canvas
     const canvas = document.createElement('canvas');
     canvas.id = 'bg-canvas';
     canvas.style.cssText = `
         position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        z-index: 0;
+        top: -10%; left: -10%;
+        width: 120%; height: 120%;
+        z-index: -1;
         pointer-events: none;
-        opacity: 0.5;
+        opacity: 0.4;
+        will-change: transform;
     `;
-    document.body.insertBefore(canvas, document.body.firstChild);
+    document.body.insertBefore(canvas, glowLayer);
 
     const ctx = canvas.getContext('2d');
     let W, H;
     let particles = [];
     let mouse = { x: null, y: null };
-    const PARTICLE_COUNT = 80;
-    const MAX_DIST = 130;
+    const PARTICLE_COUNT = 50;   // Reduced from 80 for smooth 60fps
+    const MAX_DIST = 110;         // Reduced connection threshold
 
     // Colour palette — subtle brand accent
     const COLOURS = [
@@ -31,8 +48,9 @@
     ];
 
     function resize() {
-        W = canvas.width  = window.innerWidth;
-        H = canvas.height = window.innerHeight;
+        // Expand canvas rendering dimensions to prevent edge clipping during parallax
+        W = canvas.width  = window.innerWidth * 1.2;
+        H = canvas.height = window.innerHeight * 1.2;
     }
 
     class Particle {
@@ -73,11 +91,15 @@
         }
     }
 
+    let frame = 0;
     function drawConnections() {
+        frame++;
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
+                // Early exit before expensive sqrt
+                if (Math.abs(dx) > MAX_DIST || Math.abs(dy) > MAX_DIST) continue;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < MAX_DIST) {
                     const alpha = (1 - dist / MAX_DIST) * 0.08;
@@ -89,10 +111,11 @@
                     ctx.stroke();
                 }
             }
-            // Connect to mouse
-            if (mouse.x !== null) {
+            // Mouse connections — every other frame to halve cost
+            if (frame % 2 === 0 && mouse.x !== null) {
                 const dx = particles[i].x - mouse.x;
                 const dy = particles[i].y - mouse.y;
+                if (Math.abs(dx) > MAX_DIST * 1.5 || Math.abs(dy) > MAX_DIST * 1.5) continue;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < MAX_DIST * 1.5) {
                     const alpha = (1 - dist / (MAX_DIST * 1.5)) * 0.15;
@@ -125,6 +148,18 @@
     });
 
     window.addEventListener('resize', () => { init(); });
+
+    // PARALLAX LAYER SCROLL TRACKER
+    // Offloads movement from the main thread using native CSS transforms on fixed layers
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        
+        // Back Layer moves very slow (-0.1y)
+        canvas.style.transform = `translateY(${scrolled * -0.1}px)`;
+        
+        // Middle Layer (Glow) moves slightly faster (-0.25y)
+        glowLayer.style.transform = `translateY(${scrolled * -0.25}px)`;
+    }, { passive: true });
 
     init();
     animate();

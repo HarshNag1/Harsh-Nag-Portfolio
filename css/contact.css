@@ -14,8 +14,14 @@
 
 /* Huge editorial contact heading */
 .contact-header {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
     text-align: center;
+}
+
+.contact-header .section-eyebrow {
+    font-size: 0.95rem; /* Increased from global 0.75rem */
+    letter-spacing: 0.25em;
+    margin-bottom: 1rem;
 }
 
 .contact-heading {
@@ -24,7 +30,7 @@
     line-height: 0.9;
     letter-spacing: 0.02em;
     color: var(--text-main);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     text-transform: uppercase;
 }
 
@@ -40,6 +46,7 @@
     padding-bottom: 3px;
     transition: color 0.3s, border-color 0.3s;
 }
+
 .contact-email:hover {
     color: var(--brand-secondary);
     border-color: rgba(255, 184, 0, 0.5);
@@ -91,11 +98,13 @@
     transition: border-color 0.3s, box-shadow 0.3s;
     box-shadow: var(--neu-shadow-inset);
 }
+
 .form-input:focus,
 .form-textarea:focus {
     outline: none;
-    border-color: rgba(255, 94, 0, 0.4);
-    box-shadow: var(--neu-shadow-inset), 0 0 0 3px rgba(255, 94, 0, 0.06);
+    border-color: rgba(255, 94, 0, 0.8);
+    box-shadow: 0 0 0 4px rgba(255, 94, 0, 0.15), var(--neu-shadow-inset);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .form-textarea {
@@ -123,14 +132,17 @@
     justify-content: center;
     gap: 0.75rem;
 }
+
 .submit-btn:hover {
     box-shadow: var(--neu-shadow-inset);
     color: var(--brand-secondary);
     border-color: rgba(255, 184, 0, 0.2);
 }
+
 .arrow {
     transition: transform 0.3s ease;
 }
+
 .submit-btn:hover .arrow {
     transform: translateX(5px);
 }
@@ -150,6 +162,7 @@
     display: flex;
     gap: 1.5rem;
 }
+
 .footer-link {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -159,13 +172,16 @@
     text-decoration: none;
     transition: color 0.3s;
 }
-.footer-link:hover { color: var(--brand-primary); }
+
+.footer-link:hover {
+    color: var(--brand-primary);
+}
 
 .footer-copy {
     text-align: center;
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    color: rgba(255,255,255,0.25);
+    color: rgba(255, 255, 255, 0.25);
     letter-spacing: 0.08em;
 }
 
@@ -174,13 +190,28 @@
     font-family: var(--font-accent);
     font-style: italic;
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 768px) {
-    .form-row { grid-template-columns: 1fr; }
-    .contact-form { padding: 1.5rem; }
-    .footer-bottom { grid-template-columns: 1fr; text-align: center; }
-    .footer-social { justify-content: center; }
-    .footer-tag { text-align: center; }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .footer-bottom {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-tag {
+        text-align: center;
+    }
 }
