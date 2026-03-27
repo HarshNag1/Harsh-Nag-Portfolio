@@ -1,68 +1,215 @@
-/* About and Skills Section Styles */
+/* =============================================================
+   ABOUT SECTION — Bold statement layout
+============================================================= */
+.about-section {
+    padding: 5rem 0;
+    border-top: 1px solid rgba(255, 107, 0, 0.08);
+}
+
+.about-header {
+    margin-bottom: 3rem;
+}
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 6rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+/* Left — big statement text */
+.about-statement {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.about-big-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    line-height: 1.05;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+.about-big-text em {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 0.78em;
+    color: var(--brand-primary);
+    text-transform: none;
+    letter-spacing: 0.01em;
+}
+
+/* Right — detail + tags */
+.about-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .about-text {
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
-    font-weight: 300;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-muted);
 }
 
-.skills-list {
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+.about-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: border-color 0.3s, color 0.3s;
+}
+.about-tag:hover {
+    border-color: rgba(255, 94, 0, 0.3);
+    color: var(--brand-primary);
+}
+
+/* ============================================================
+   HORIZONTAL TECH STACK
+============================================================= */
+.horizontal-wrapper {
+    position: relative;
+    border-top: 1px solid rgba(255, 107, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.08);
+}
+
+.horizontal-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    will-change: unset;
 }
 
-.skill-category h3 {
-    font-family: var(--font-mono);
+.horizontal-panel {
+    width: 100%;
+    padding: 5rem 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.horizontal-panel:last-child {
+    border-bottom: none;
+}
+
+.panel-content {
+    max-width: var(--container-width);
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.panel-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 2.5rem;
+    color: var(--text-main);
+    letter-spacing: 0.03em;
+}
+
+/* Tech skill cards */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--accent-cyber);
-    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s, transform 0.3s;
+}
+.tech-card:hover {
+    border-color: rgba(255, 94, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.tech-icon {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--brand-primary);
+    background: rgba(255, 94, 0, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+}
+
+
+/* ── Arsenal Panel — Categorised Grid ─────────────────────────── */
+.arsenal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.arsenal-group {
+    background: rgba(255, 94, 0, 0.03);
+    border: 1px solid rgba(255, 94, 0, 0.1);
+    border-left: 2px solid rgba(255, 94, 0, 0.5);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.3s, background 0.3s;
+}
+.arsenal-group:hover {
+    background: rgba(255, 94, 0, 0.06);
+    border-left-color: var(--brand-primary);
+}
+
+.arsenal-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: var(--brand-secondary);
+    margin-bottom: 0.55rem;
+    font-weight: 600;
 }
 
-.skill-category p {
-    color: var(--text-muted);
-    line-height: 1.6;
+.arsenal-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
 }
 
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
+.arsenal-pill {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    padding: 0.2rem 0.65rem;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+    cursor: default;
 }
-
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-top: 1px solid rgba(255, 255, 255, 0.2);
-border-radius: 50px;
-padding: 0.5rem 1.2rem;
-font-size: 0.9rem;
-color: var(--text-main);
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-cursor: default;
-}
-
-.skills-tags span:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: rgba(0, 230, 255, 0.15);
-    border-color: rgba(0, 230, 255, 0.4);
-    box-shadow: 0 8px 25px rgba(0, 230, 255, 0.3), inset 0 0 10px rgba(0, 230, 255, 0.2);
-    color: #ffffff;
+.arsenal-pill:hover {
+    border-color: rgba(255, 94, 0, 0.45);
+    color: var(--brand-secondary);
+    background: rgba(255, 94, 0, 0.07);
 }
 
 @media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 2.5rem;
-        /* Adjust padding for smaller screens */
-        border-radius: 16px;
-    }
+    .arsenal-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-big-text { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+    .horizontal-panel { padding: 2.5rem 0; }
 }

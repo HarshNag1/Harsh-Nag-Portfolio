@@ -1,0 +1,239 @@
+/* =============================================================
+   PATENTS MODAL — Premium Glassmorphism Style
+============================================================= */
+
+/* Trigger button on stat label */
+.patents-trigger {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+    text-decoration: none;
+}
+.patents-trigger:hover {
+    color: var(--brand-secondary);
+    letter-spacing: 0.2em;
+}
+
+/* ---- Overlay ---- */
+.patents-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(5, 5, 7, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    /* Hidden by default */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.patents-modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ---- Modal Box ---- */
+.patents-modal-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 720px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    
+    /* Slide-up entrance */
+    transform: translateY(30px) scale(0.97);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Thin scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 94, 0, 0.2) transparent;
+}
+.patents-modal-overlay.open .patents-modal-box {
+    transform: translateY(0) scale(1);
+}
+
+/* ---- Header ---- */
+.patents-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.patents-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-primary);
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.patents-modal-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    color: var(--text-main);
+    text-transform: uppercase;
+}
+
+.patents-close-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    line-height: 1;
+}
+.patents-close-btn:hover {
+    background: rgba(255, 94, 0, 0.15);
+    border-color: rgba(255, 94, 0, 0.4);
+    color: var(--brand-primary);
+}
+
+/* ---- Subtitle ---- */
+.patents-modal-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    line-height: 1.6;
+}
+
+/* ---- Patent List ---- */
+.patents-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.patents-item {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    margin: 0 -1rem;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.patents-item:last-child {
+    border-bottom: none;
+}
+.patents-item:hover {
+    background: rgba(255, 94, 0, 0.04);
+}
+
+.patent-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--brand-primary);
+    align-self: flex-start;
+    padding-top: 0.18rem;
+}
+
+.patent-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.patent-title {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.patent-field {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.patent-link-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+}
+.patent-link-btn:hover {
+    background: rgba(255, 94, 0, 0.15);
+    border-color: rgba(255, 94, 0, 0.4);
+    color: var(--brand-primary);
+    transform: scale(1.1);
+}
+
+/* ---- Footer ---- */
+.patents-modal-footer {
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.patents-footer-note {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 94, 0, 0.5);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+    .patents-modal-box {
+        padding: 1.5rem;
+    }
+    .patents-item {
+        grid-template-columns: 30px 1fr auto;
+        gap: 1rem;
+    }
+}

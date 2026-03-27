@@ -1,199 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Nag | Portfolio</title>
-    <!-- Fonts -->
+    <title>Harsh Nag | AGI Researcher & Cybersecurity Expert</title>
+    <meta name="description" content="Portfolio of Harsh Nag — AGI Researcher, Cybersecurity Expert, 23 Pending Patents, SAP Recognized. Founder of REBirth AI, NUREA HUMAN, NeuroSensora.">
+
+    <!-- Awwwards-Tier Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Modular CSS -->
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/background.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/founders.css">
+    <link rel="stylesheet" href="css/ventures.css">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/transitions.css">
 </head>
-
 <body>
-    <!-- Preloader -->
-    <div id="loader" class="loader-wrapper">
-        <div class="loader-content">
-            <h1 class="loader-logo">HN.</h1>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
-            <p class="loader-text">INITIALIZING SYSTEMS...</p>
-        </div>
-    </div>
 
-    <!-- 3D Background Canvas -->
-    <div id="canvas-container"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-    <header class="header">
-        <div class="logo">HN.</div>
-        <nav class="nav">
-            <a href="#about">About</a>
-            <a href="#projects">Work</a>
-            <a href="./Harsh%20Nag%20CV/CV_202512220944560614_12307324%20(1).pdf" target="_blank">Resume</a>
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Page load overlay -->
+    <div id="page-loader"></div>
+
+    <!-- ============================================================
+         HEADER / SIDEBAR NAV
+    ============================================================ -->
+    <header class="navbar">
+        <div class="logo style-gradient">HN.</div>
+        <nav class="nav-links">
+            <a href="#hero"         class="nav-item">Home</a>
+            <a href="#about"        class="nav-item">About</a>
+            <a href="#timeline"     class="nav-item">Journey</a>
+            <a href="#languages"    class="nav-item">Languages</a>
+            <a href="#tools"        class="nav-item">Tools</a>
+            <a href="#projects"     class="nav-item">Projects</a>
+            <a href="#ventures"     class="nav-item">Ventures</a>
+            <a href="#founders"     class="nav-item">Founders</a>
+            <a href="#certificates" class="nav-item">Achievements</a>
+            <a href="#contact"      class="nav-btn">Get in Touch</a>
         </nav>
     </header>
 
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="hero" class="container hero-section">
-            <div class="hero-text-container">
-                <h1 class="hero-title">
-                    <span class="highlight-name">Harsh Nag</span> is a Computer Science student building
-                    <span class="highlight-ai">AI-driven systems</span> and
-                    <span class="highlight-cyber">cybersecurity solutions</span> that make digital environments smarter
-                    and more secure.
-                </h1>
-                <p class="hero-subtitle">Cybersecurity &bull; AI Systems &bull; Automation</p>
+    <main class="smooth-scroll-wrapper">
+
+        <!-- ============================================================
+             1. HERO — Asymmetric Split Layout
+        ============================================================ -->
+        <section id="hero" class="hero-section">
+
+            <!-- Marquee strip at top of hero -->
+            <div class="hero-marquee-strip">
+                <div class="marquee-track">
+                    <span>AGI RESEARCHER</span><span class="marquee-dot">✦</span>
+                    <span>CYBERSECURITY</span><span class="marquee-dot">✦</span>
+                    <span>23 PENDING PATENTS</span><span class="marquee-dot">✦</span>
+                    <span>SAP RECOGNIZED</span><span class="marquee-dot">✦</span>
+                    <span>28M+ NETWORK</span><span class="marquee-dot">✦</span>
+                    <span>AGI RESEARCHER</span><span class="marquee-dot">✦</span>
+                    <span>CYBERSECURITY</span><span class="marquee-dot">✦</span>
+                    <span>23 PENDING PATENTS</span><span class="marquee-dot">✦</span>
+                    <span>SAP RECOGNIZED</span><span class="marquee-dot">✦</span>
+                    <span>28M+ NETWORK</span><span class="marquee-dot">✦</span>
+                </div>
             </div>
-            <div class="profile-container">
-                <img src="./Images/harsh.png" alt="Harsh Nag" class="profile-img">
+
+            <div class="container hero-split">
+
+                <!-- LEFT: Text content -->
+                <div class="hero-left">
+                    <span class="hero-eyebrow">Portfolio 2026</span>
+
+                    <!-- Status badge -->
+                    <div class="hero-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Open to Collaboration</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="hero-title-line">HARSH</span>
+                        <span class="hero-title-line hero-title-outline">NAG</span>
+                    </h1>
+
+                    <p class="hero-tagline"><em>AGI Researcher &amp; Cybersecurity Expert</em></p>
+
+                    <p class="hero-description">
+                        Engineering intelligent, resilient systems that bridge the gap between human cognition and structural digital security.
+                    </p>
+
+                    <!-- Animated stat counters -->
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="stat-value">
+                                <span class="stat-number" data-target="23">0</span>
+                                <span class="stat-suffix">+</span>
+                            </div>
+                            <span class="stat-label">Airing Patents</span>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="stat-value">
+                                <span class="stat-number" data-target="28">0</span>
+                                <span class="stat-suffix">M+</span>
+                            </div>
+                            <span class="stat-label">Network Reach</span>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="stat-value">
+                                <span class="stat-number" data-target="2">0</span>
+                                <span class="stat-suffix"></span>
+                            </div>
+                            <span class="stat-label">Years Research</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-bottom-bar">
+                        <div class="social-links">
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="./Harsh%20Nag%20CV/CV_202512220944560614_12307324%20(1).pdf" target="_blank" class="social-link">Resume</a>
+                            <a href="#" class="social-link">GitHub</a>
+                            <a href="#projects" class="social-link highlight-link">View Work &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Photo + floating details -->
+                <div class="hero-right">
+                    <div class="hero-image-frame">
+                        <div class="hero-image-wrapper">
+                            <img src="./Images/harsh.png" alt="Harsh Nag" class="hero-photo"
+                                 onerror="this.src='https://via.placeholder.com/500x600?text=HN'">
+                            <div class="hero-glow"></div>
+                        </div>
+                        <!-- Floating info card -->
+                        <div class="hero-float-card top-card">
+                            <span class="float-label">AI Innovation</span>
+                            <span class="float-value">SAP 2024 Recognition</span>
+                        </div>
+                        <div class="hero-float-card bottom-card">
+                            <span class="float-label">Current Focus</span>
+                            <span class="float-value">AGI Research • Emotional AI •<br>Intelligent Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Scroll down indicator -->
+            <div class="scroll-down-indicator">
+                <span class="scroll-label">SCROLL</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
-        <!-- Content Sections Wrapper (Dark Overlay) -->
-        <div class="content-overlay">
+        <!-- ============================================================
+             2. ABOUT ME — Bold statement layout
+        ============================================================ -->
+        <section id="about" class="about-section">
+            <div class="container">
 
+                <div class="about-header">
+                    <span class="section-eyebrow">About Me</span>
+                    <h2 class="section-heading fade-up">WHO I AM</h2>
+                </div>
 
-            <!-- About & Skills Section -->
-            <section id="about" class="container">
-                <h2 class="section-title">01 / Profile & Capabilities</h2>
                 <div class="about-grid">
-                    <div class="about-text">
-                        <p>
-                            I am dedicated to engineering resilient systems at the intersection of Artificial
-                            Intelligence and Cybersecurity. My focus is on creating automated, secure environments that
-                            scale efficiently while maintaining structural integrity.
+                    <div class="about-statement fade-up">
+                        <p class="about-big-text">I build systems that <em>think</em>.</p>
+                        <p class="about-big-text">I secure systems that <em>matter</em>.</p>
+                        <p class="about-big-text">I research the <em>future</em>.</p>
+                    </div>
+                    <div class="about-detail fade-up">
+                        <p class="about-text">
+                            I am an innovator working in the fields of Artificial General Intelligence, cybersecurity, and advanced technology development.
                         </p>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-category">
-                            <h3>Development</h3>
-                            <p>Python, Java, C++, JavaScript</p>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Cybersecurity</h3>
-                            <p>OSINT, Metasploit, Nmap, Network Security</p>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Infrastructure & Tools</h3>
-                            <p>Kali Linux, AWS, Nessus, Wireshark, MySQL</p>
+                        <p class="about-text">
+                            My journey started with content creation and game development, and has evolved into research-driven work in AI systems, emotional intelligence models, and hardware-integrated solutions.
+                        </p>
+                        <p class="about-text">
+                            I am currently focused on building scalable technologies, working on patents, and developing systems that bridge the gap between digital intelligence and real-world applications.
+                        </p>
+                        <div class="about-tags">
+                            <span class="about-tag">AGI Systems</span>
+                            <span class="about-tag">Cybersecurity</span>
+                            <span class="about-tag">Emotional AI</span>
+                            <span class="about-tag">Patent Research</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Projects Section -->
-            <section id="projects" class="container">
-                <h2 class="section-title">02 / Selected Works</h2>
-                <div class="projects-container">
+        <!-- ============================================================
+             3. TIMELINE — Horizontal Journey
+        ============================================================ -->
+        <section id="timeline" class="journey-wrapper">
+            <div class="journey-container">
 
-                    <!-- Project 1 -->
-                    <article class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">AI-Powered OS Automation</h3>
-                            <span class="project-year">2024</span>
-                        </div>
-                        <p class="project-desc">Laptop OS automation assistant leveraging AI for seamless system
-                            management. Capable of executing daily maintenance routines and intelligently parsing
-                            natural language voice/text commands.</p>
-                        <div class="project-tags">
-                            <span>Python</span><span>Bash</span><span>AI</span>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Smart Attendance & Exam Monitoring</h3>
-                            <span class="project-year">2023</span>
-                        </div>
-                        <p class="project-desc">An integrity-first examination monitoring system utilizing visual AI to
-                            ensure secure testing environments. Features real-time facial recognition and behavioral
-                            anomaly detection.</p>
-                        <div class="project-tags">
-                            <span>OpenCV</span><span>Python</span><span>AWS</span>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Learning Disabilities Detection</h3>
-                            <span class="project-year">2023</span>
-                        </div>
-                        <p class="project-desc">A highly accurate machine learning system designed to detect early signs
-                            of learning disabilities, achieving 95% classification accuracy. Integrated with a secure
-                            screening dashboard.</p>
-                        <div class="project-tags">
-                            <span>Python</span><span>Scikit-Learn</span><span>React</span>
-                        </div>
-                    </article>
-
+                <!-- Title Panel -->
+                <div class="journey-panel title-panel">
+                    <span class="section-eyebrow">2018 — 2026</span>
+                    <h2 class="journey-heading">THE<br>JOURNEY</h2>
+                    <p class="journey-sub"><em>From zero to impact</em></p>
+                    <div class="scroll-indicator">Drag or scroll &rarr;</div>
                 </div>
-            </section>
 
-            <!-- Credentials & Contact -->
-            <section id="contact" class="container">
-                <h2 class="section-title">03 / Credentials & Contact</h2>
-
-                <div class="credentials-grid">
-                    <div>
-                        <h3 class="subsection-title">Achievements</h3>
-                        <ul class="clean-list">
-                            <li><strong>Hackathon Winner:</strong> 1st Place in Regional Cybersecurity Challenge</li>
-                            <li><strong>Patent Accepted:</strong> Architectures for Intelligent Security Systems</li>
-                            <li><strong>CTF Competitions:</strong> Top Percentile Ranking</li>
-                            <li><strong>AI/ML Bootcamp:</strong> Outstanding Performer Award</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="subsection-title">Certifications</h3>
-                        <ul class="clean-list">
-                            <li>CompTIA Security+</li>
-                            <li>Cisco CCNA</li>
-                            <li>AWS Solutions Architect</li>
-                            <li>Linux Professional (LPIC-1)</li>
-                        </ul>
+                <div class="journey-panel">
+                    <div class="journey-card">
+                        <div class="j-year">01</div>
+                        <div class="j-period">2018 – 2019</div>
+                        <h3 class="j-title">The Beginning</h3>
+                        <p class="j-text">Started a YouTube channel and began game development — the first steps toward a career in technology and digital creation.</p>
                     </div>
                 </div>
 
-                <footer class="footer">
-                    <h2 class="footer-title">Let's build secure infrastructure together.</h2>
-                    <div class="footer-links">
-                        <a href="mailto:contact@example.com" class="footer-link">Email</a>
+                <div class="journey-panel">
+                    <div class="journey-card">
+                        <div class="j-year">02</div>
+                        <div class="j-period">2019 – 2020</div>
+                        <h3 class="j-title">Growth Under Pressure</h3>
+                        <p class="j-text">The global lockdown accelerated growth — the YouTube channel scaled significantly and game development skills deepened considerably.</p>
+                    </div>
+                </div>
+
+                <div class="journey-panel">
+                    <div class="journey-card">
+                        <div class="j-year">03</div>
+                        <div class="j-period">2020 – 2021</div>
+                        <h3 class="j-title">First Impact</h3>
+                        <p class="j-text">YouTube channel achieved monetization — generating real income and contributing meaningfully to the family's financial stability.</p>
+                    </div>
+                </div>
+
+                <div class="journey-panel">
+                    <div class="journey-card">
+                        <div class="j-year">04</div>
+                        <div class="j-period">2022 – 2023</div>
+                        <h3 class="j-title">Recognition &amp; Pivot</h3>
+                        <p class="j-text">Became an online partner of YTFFIN'22, received global recognition, and began a life-changing transition into advanced technology research.</p>
+                    </div>
+                </div>
+
+                <div class="journey-panel huge-panel">
+                    <div class="journey-card expanded-card">
+                        <div class="j-year">05</div>
+                        <div class="j-period">2023 – 2026</div>
+                        <h3 class="j-title">Research &amp; Innovation</h3>
+                        <p class="j-text">Working on AGI research and innovation across multiple sectors. Received recognition from multinational companies including SAP.</p>
+
+                        <div class="j-stats-container">
+                            <div class="j-stat-box">
+                                <h4>23 Patents (2026–2027)</h4>
+                                <ul>
+                                    <li>4 in publication stage</li>
+                                    <li>14 in documentation stage</li>
+                                    <li>5 onboarding</li>
+                                    <li>2 AI research papers onboard</li>
+                                </ul>
+                            </div>
+                            <div class="j-stat-box">
+                                <h4>Research Focus</h4>
+                                <ul>
+                                    <li>Emotional AI Systems</li>
+                                    <li>AI Hardware Integration</li>
+                                    <li>AGI Frameworks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer -->
+                <div class="journey-panel spacer-panel"></div>
+            </div>
+
+            <div class="journey-progress-line"></div>
+            <div class="journey-sparkle" id="journeySparkle"></div>
+        </section>
+
+        <!-- ============================================================
+             2.1 TECH STACK — Horizontal Scroll
+        ============================================================ -->
+        <section id="tech-stack" class="horizontal-wrapper">
+            <div class="horizontal-container">
+
+                <!-- Panel 1: Languages Known -->
+                <section id="languages" class="horizontal-panel">
+                    <div class="panel-content">
+                        <span class="section-eyebrow">Proficiency</span>
+                        <h2 class="panel-title">LANGUAGES</h2>
+                        <div class="tech-grid">
+                            <div class="tech-card"><span class="tech-icon">Py</span>Python</div>
+                            <div class="tech-card"><span class="tech-icon">C</span>C</div>
+                            <div class="tech-card"><span class="tech-icon">C+</span>C++</div>
+                            <div class="tech-card"><span class="tech-icon">Jv</span>Java</div>
+                            <div class="tech-card"><span class="tech-icon">SQ</span>SQL</div>
+                            <div class="tech-card"><span class="tech-icon">Sh</span>Bash</div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Panel 2: Cybersecurity Arsenal — Categorised -->
+                <section id="tools" class="horizontal-panel">
+                    <div class="panel-content">
+                        <span class="section-eyebrow">Hands-On</span>
+                        <h2 class="panel-title" style="color:var(--text-main)">TOOLS</h2>
+
+                        <div class="arsenal-grid">
+
+                            <div class="arsenal-group">
+                                <span class="arsenal-label">Recon &amp; Scanning</span>
+                                <div class="arsenal-tools">
+                                    <span class="arsenal-pill">Nmap</span>
+                                    <span class="arsenal-pill">Gobuster</span>
+                                    <span class="arsenal-pill">Nikto</span>
+                                </div>
+                            </div>
+
+                            <div class="arsenal-group">
+                                <span class="arsenal-label">Web Security Testing</span>
+                                <div class="arsenal-tools">
+                                    <span class="arsenal-pill">Burp Suite</span>
+                                    <span class="arsenal-pill">SQLmap</span>
+                                </div>
+                            </div>
+
+                            <div class="arsenal-group">
+                                <span class="arsenal-label">Exploitation &amp; Attacks</span>
+                                <div class="arsenal-tools">
+                                    <span class="arsenal-pill">Metasploit</span>
+                                    <span class="arsenal-pill">Netcat</span>
+                                </div>
+                            </div>
+
+                            <div class="arsenal-group">
+                                <span class="arsenal-label">Password &amp; Cracking</span>
+                                <div class="arsenal-tools">
+                                    <span class="arsenal-pill">John the Ripper</span>
+                                    <span class="arsenal-pill">Hashcat</span>
+                                    <span class="arsenal-pill">Hydra</span>
+                                </div>
+                            </div>
+
+                            <div class="arsenal-group">
+                                <span class="arsenal-label">Network Analysis</span>
+                                <div class="arsenal-tools">
+                                    <span class="arsenal-pill">Wireshark</span>
+                                </div>
+                            </div>
+
+                            <div class="arsenal-group">
+                                <span class="arsenal-label">Wireless Security</span>
+                                <div class="arsenal-tools">
+                                    <span class="arsenal-pill">Aircrack-ng</span>
+                                </div>
+                            </div>
+
+                            <div class="arsenal-group">
+                                <span class="arsenal-label">Environment &amp; Dev Tools</span>
+                                <div class="arsenal-tools">
+                                    <span class="arsenal-pill">Kali Linux</span>
+                                    <span class="arsenal-pill">Git</span>
+                                    <span class="arsenal-pill">Docker</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             4. PROJECTS — Editorial Numbered List
+        ============================================================ -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <span class="section-eyebrow">Selected Projects</span>
+                    <h2 class="section-heading holo-text fade-up">PROJECTS</h2>
+                </div>
+
+                <div class="projects-list">
+
+                    <article class="project-item fade-up">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Game Dev</span>
+                                <span class="project-tag">2019–2021</span>
+                            </div>
+                            <h3 class="project-title">Immersive 3D Environments</h3>
+                            <p class="project-desc">Early-stage game development projects exploring structural design, interactive logic, and real-time rendering — forming the technical foundation for later research work.</p>
+                        </div>
+                        <a href="#" class="project-link">View &rarr;</a>
+                    </article>
+
+                    <article class="project-item fade-up">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">AGI Research</span>
+                                <span class="project-tag">2023–2026</span>
+                            </div>
+                            <h3 class="project-title">Emotional AI Frameworks</h3>
+                            <p class="project-desc">7 patent-pending research modules in affective computing — modelling emotional response patterns and human-AI alignment at the cognitive layer.</p>
+                        </div>
+                        <a href="#" class="project-link">View &rarr;</a>
+                    </article>
+
+                    <article class="project-item fade-up">
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Hardware</span>
+                                <span class="project-tag">2024–2026</span>
+                            </div>
+                            <h3 class="project-title">AI Hardware Responsive Systems</h3>
+                            <p class="project-desc">7 patent-pending systems bridging neural processing with physical device intelligence — enabling hardware that responds to cognitive AI signals in real time.</p>
+                        </div>
+                        <a href="#" class="project-link">View &rarr;</a>
+                    </article>
+
+                    <article class="project-item fade-up">
+                        <div class="project-number">04</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Cybersecurity</span>
+                                <span class="project-tag">2023–2026</span>
+                            </div>
+                            <h3 class="project-title">Penetration Testing &amp; Security Research</h3>
+                            <p class="project-desc">Hands-on security research spanning network reconnaissance, web application testing, exploitation frameworks, and vulnerability assessment across real-world environments.</p>
+                        </div>
+                        <a href="#" class="project-link">View &rarr;</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             5. VENTURES
+        ============================================================ -->
+        <section id="ventures" class="ventures-section container">
+
+            <div class="section-header">
+                <span class="section-eyebrow">Companies</span>
+                <h2 class="section-heading holo-text fade-up">VENTURES</h2>
+            </div>
+
+            <div class="ventures-list">
+
+                <div class="venture-item fade-up">
+                    <div class="venture-number">01</div>
+                    <div class="venture-content">
+                        <h3 class="venture-title">REBirth AI</h3>
+                        <p class="venture-desc">An AGI-first company building next-generation artificial intelligence systems with ethical alignment at the core.</p>
+                    </div>
+                    <div class="venture-meta">
+                        <span class="venture-role">Founder &amp; CEO</span>
+                        <span class="venture-tag">Active</span>
+                    </div>
+                </div>
+
+                <div class="venture-item fade-up">
+                    <div class="venture-number">02</div>
+                    <div class="venture-content">
+                        <h3 class="venture-title">NUREA HUMAN</h3>
+                        <p class="venture-desc">Pioneering the intersection of neural interfaces and human augmentation for the next era of human-machine integration.</p>
+                    </div>
+                    <div class="venture-meta">
+                        <span class="venture-role">Founder &amp; CEO</span>
+                        <span class="venture-tag">Active</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             6. FOUNDERS — Alliance Section
+        ============================================================ -->
+        <section id="founders" class="founders-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <span class="section-eyebrow">Network</span>
+                    <h2 class="section-heading holo-text fade-up">ALLIANCE &amp;<br>FOUNDERS</h2>
+                </div>
+
+                <!-- NeuroSensora × CAF Feature Card -->
+                <div class="caf-card fade-up">
+                    <div class="caf-card-inner">
+                        <div class="caf-left">
+                            <span class="caf-badge">NeuroSensora × CAF</span>
+                            <h3 class="caf-title">NeuroSensora × CAF</h3>
+                            <p class="caf-vision">A parent alliance integrating neurotechnology research with a global creator ecosystem, built to scale innovation across industries.</p>
+                        </div>
+                        <div class="caf-right">
+                            <div class="caf-stat-big">
+                                <span class="caf-stat-num counter" data-target="28">0</span>
+                                <span class="caf-stat-unit">M+</span>
+                                <span class="caf-stat-desc">Globally Connected</span>
+                            </div>
+                            <div class="caf-stat-sub">Expanding to 50M – 55M+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Founder Cards -->
+                <div class="founders-grid">
+                    <div class="founder-card fade-up">
+                        <div class="founder-avatar">HN</div>
+                        <div class="founder-info">
+                            <h4 class="founder-name">Harsh Nag</h4>
+                            <span class="founder-role">Founder &amp; CEO</span>
+                            <p class="founder-desc">AI innovator, researcher, and YTFFIN'22 online meet partner. Building scalable intelligent systems and next-generation technologies.</p>
+                        </div>
+                    </div>
+
+                    <div class="founder-card fade-up">
+                        <div class="founder-avatar">HR</div>
+                        <div class="founder-info">
+                            <h4 class="founder-name">Harry</h4>
+                            <span class="founder-role">Co-Founder &amp; Network Lead</span>
+                            <p class="founder-desc">International creator and YTFFIN'22 online meet partner. Building and scaling global creator ecosystems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center-btn fade-up">
+                    <button class="submit-btn">Know More &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             7. ACHIEVEMENTS
+        ============================================================ -->
+        <section id="certificates" class="certificates-section container">
+
+            <div class="section-header">
+                <span class="section-eyebrow">Recognition</span>
+                <h2 class="section-heading fade-up">ACHIEVEMENTS</h2>
+            </div>
+
+            <div class="certs-grid">
+                <a href="#" class="cert-card fade-up">
+                    <div class="cert-icon" style="font-family:var(--font-mono);font-size:0.85rem;letter-spacing:.05em">CERT</div>
+                    <span class="cert-title">Industry Certifications</span>
+                    <span class="cert-sub">Verified Technical Credentials</span>
+                    <span class="cert-arrow">View &rarr;</span>
+                </a>
+                <a href="#" class="cert-card fade-up">
+                    <div class="cert-icon" style="font-family:var(--font-mono);font-size:0.85rem;letter-spacing:.05em">RSCH</div>
+                    <span class="cert-title">Research &amp; Patents</span>
+                    <span class="cert-sub">23 Airing Patents · 2 Papers</span>
+                    <span class="cert-arrow">View &rarr;</span>
+                </a>
+                <a href="#" class="cert-card fade-up">
+                    <div class="cert-icon" style="font-family:var(--font-mono);font-size:0.85rem;letter-spacing:.05em">SAP</div>
+                    <span class="cert-title">SAP Recognition 2024</span>
+                    <span class="cert-sub">Multinational AI Endorsement</span>
+                    <span class="cert-arrow">View &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             8. CONTACT
+        ============================================================ -->
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+
+                <div class="contact-header">
+                    <span class="section-eyebrow">Let's Connect</span>
+                    <h2 class="contact-heading fade-up">LET'S BUILD<br>SOMETHING.</h2>
+                    <a href="mailto:harshnag2305@gmail.com" class="contact-email fade-up">
+                        harshnag2305@gmail.com
+                    </a>
+                </div>
+
+                <form class="contact-form fade-up" action="mailto:harshnag2305@gmail.com" method="POST" enctype="text/plain">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Hello Harsh, I'd like to talk about..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message <span class="arrow">→</span></button>
+                </form>
+
+                <div class="footer-bottom">
+                    <div class="footer-social">
                         <a href="#" class="footer-link">LinkedIn</a>
                         <a href="#" class="footer-link">GitHub</a>
-                        <a href="./Harsh%20Nag%20CV/CV_202512220944560614_12307324%20(1).pdf" target="_blank"
-                            class="footer-link">Resume</a>
+                        <a href="#" class="footer-link">Resume</a>
                     </div>
-                    <div class="copyright">&copy; Harsh Nag 2024. All algorithms intact.</div>
-                </footer>
-            </section>
-
-        </div> <!-- End of content-overlay -->
+                    <div class="footer-copy">&copy; 2026 Harsh Nag. All rights reserved.</div>
+                    <div class="footer-tag">Built with precision. Driven by research.</div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
-    <!-- Modular JS -->
-    <script src="js/background.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/bg-animation.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>

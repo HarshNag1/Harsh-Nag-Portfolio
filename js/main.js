@@ -262,5 +262,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ============================================================
+    // PATENTS MODAL — Open / Close
+    // ============================================================
+    const patentsModal   = document.getElementById('patentsModal');
+    const openPatentsBtn = document.getElementById('openPatentsModal');
+    const closePatentsBtn = document.getElementById('closePatentsModal');
+
+    function openPatents() {
+        if (!patentsModal) return;
+        patentsModal.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+    function closePatents() {
+        if (!patentsModal) return;
+        patentsModal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (openPatentsBtn)  openPatentsBtn.addEventListener('click',  openPatents);
+    if (closePatentsBtn) closePatentsBtn.addEventListener('click', closePatents);
+
+    // Close when clicking backdrop (outside the box)
+    if (patentsModal) {
+        patentsModal.addEventListener('click', (e) => {
+            if (e.target === patentsModal) closePatents();
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closePatents();
+    });
+
     console.log("✦ Portfolio JS Loaded — Awwwards Tier 2026");
 });
