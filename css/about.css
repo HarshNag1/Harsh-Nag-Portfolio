@@ -125,30 +125,41 @@
 .tech-card {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.25rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 8px;
+    gap: 0.8rem;
+    padding: 0.6rem 1.4rem;
+    background: linear-gradient(145deg, rgba(20,20,25,0.7) 0%, rgba(5,5,10,0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--text-main);
+    font-size: 0.95rem;
+    color: #dedede;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
-    transition: border-color 0.3s, transform 0.3s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
 }
 .tech-card:hover {
-    border-color: rgba(255, 94, 0, 0.3);
-    transform: translateY(-2px);
+    border-color: rgba(255, 107, 0, 0.5);
+    background: linear-gradient(145deg, rgba(30,15,5,0.8) 0%, rgba(5,5,10,0.9) 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 107, 0, 0.15), inset 0 0 20px rgba(0,0,0,0.5);
+    color: #ffffff;
 }
 
 .tech-icon {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
     color: var(--brand-primary);
-    background: rgba(255, 94, 0, 0.1);
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
+    background: transparent;
+    padding: 0;
+    padding-right: 0.8rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
     letter-spacing: 0.05em;
+    transition: color 0.3s;
+}
+.tech-card:hover .tech-icon {
+    color: var(--brand-secondary);
 }
 
 
@@ -187,24 +198,42 @@
 .arsenal-tools {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.5rem;
 }
 
 .arsenal-pill {
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--text-main);
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 100px;
-    padding: 0.2rem 0.65rem;
-    transition: border-color 0.25s, color 0.25s, background 0.25s;
+    padding: 0.35rem 0.85rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
 }
 .arsenal-pill:hover {
     border-color: rgba(255, 94, 0, 0.45);
     color: var(--brand-secondary);
     background: rgba(255, 94, 0, 0.07);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 94, 0, 0.08);
+}
+
+/* Explicit size increase for the Soft Skills section tags to match Tech Cards */
+.soft-skills-block .arsenal-tools {
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+.soft-skills-block .arsenal-pill {
+    font-size: 0.95rem;
+    padding: 0.55rem 1.4rem;
+    background: linear-gradient(145deg, rgba(20,20,25,0.7) 0%, rgba(5,5,10,0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+.soft-skills-block .arsenal-pill:hover {
+    background: linear-gradient(145deg, rgba(30,15,5,0.8) 0%, rgba(5,5,10,0.9) 100%);
 }
 
 @media (max-width: 768px) {
@@ -212,4 +241,15 @@
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .about-big-text { font-size: clamp(1.5rem, 6vw, 2.2rem); }
     .horizontal-panel { padding: 2.5rem 0; }
+}
+
+/* Soft Skills Mobile Scaling */
+@media (max-width: 768px) {
+    .soft-skills-block .arsenal-pill {
+        font-size: 0.85rem;
+        padding: 0.45rem 1.1rem;
+    }
+    .soft-skills-block .arsenal-tools {
+        gap: 0.5rem;
+    }
 }

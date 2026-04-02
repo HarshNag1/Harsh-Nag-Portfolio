@@ -9,7 +9,9 @@
 .projects-list {
     display: flex;
     flex-direction: column;
+    gap: 2rem; /* Add visual gap between project sections */
     border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 2rem;
 }
 
 .project-item {
@@ -18,7 +20,7 @@
     gap: 2.5rem;
     align-items: center;
     padding: 2.5rem 1.5rem;
-    margin: 0 -1.5rem;
+    border: 1px solid transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     text-decoration: none;
     color: inherit;
@@ -31,10 +33,151 @@
 .project-item:hover {
     background: rgba(255, 94, 0, 0.03);
     border-bottom-color: transparent;
+    border: 1px solid rgba(255, 184, 0, 0.2);
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     z-index: 10;
     position: relative;
+}
+
+/* Feature Video Project */
+.project-item--video {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    padding: 3.5rem 2.5rem;
+    min-height: 420px; /* Shows significantly more of the video vertically */
+}
+.project-item--video:hover {
+    background: transparent;
+    border-color: rgba(255, 184, 0, 0.4);
+    transform: translateY(-5px) scale(1.02);
+}
+.project-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    
+    /* Hardware Acceleration to ensure 60fps video playback without DOM lag */
+    will-change: opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+.project-item--video:hover .project-video-bg {
+    opacity: 0.8;
+}
+.project-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.7) 40%, rgba(5,5,7,0.2) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+.project-item--video > .project-number,
+.project-item--video > .project-content,
+.project-item--video > .project-link {
+    position: relative;
+    z-index: 2;
+}
+.project-item--video .project-title {
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+.project-item--video .project-desc {
+    color: rgba(255,255,255,0.9);
+}
+
+/* Feature Slideshow Project */
+.project-item--slideshow {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    padding: 3.5rem 2.5rem;
+    min-height: 420px;
+}
+.project-item--slideshow:hover {
+    background: transparent;
+    border-color: rgba(255, 184, 0, 0.4);
+    transform: translateY(-5px) scale(1.02);
+}
+.slideshow-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+.project-item--slideshow:hover .slideshow-bg {
+    opacity: 0.8;
+}
+.slideshow-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    
+    /* Hardware Acceleration to ensure butter smooth panning execution */
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    
+    animation: panSideways 12s infinite linear;
+    animation-play-state: paused; /* PERFORMANCE: Start Paused offscreen */
+}
+.in-view .slideshow-img {
+    animation-play-state: running; /* Trigger runtime only when observed */
+}
+.slideshow-img:nth-child(1) { animation-delay: 0s; }
+.slideshow-img:nth-child(2) { animation-delay: 4s; }
+.slideshow-img:nth-child(3) { animation-delay: 8s; }
+
+/* Cinematic sideways panning fade effect (Right to Left) */
+@keyframes panSideways {
+    0%   { opacity: 0; transform: scale(1.08) translateX(3%) translateZ(0); }
+    15%  { opacity: 1; transform: scale(1.08) translateX(1%) translateZ(0); }
+    33%  { opacity: 1; transform: scale(1.08) translateX(-1%) translateZ(0); }
+    48%  { opacity: 0; transform: scale(1.08) translateX(-3%) translateZ(0); }
+    100% { opacity: 0; transform: scale(1.08) translateX(-3%) translateZ(0); }
+}
+
+/* Cinematic sideways panning fade effect (Left to Right) */
+@keyframes panSidewaysReverse {
+    0%   { opacity: 0; transform: scale(1.08) translateX(-3%) translateZ(0); }
+    15%  { opacity: 1; transform: scale(1.08) translateX(-1%) translateZ(0); }
+    33%  { opacity: 1; transform: scale(1.08) translateX(1%) translateZ(0); }
+    48%  { opacity: 0; transform: scale(1.08) translateX(3%) translateZ(0); }
+    100% { opacity: 0; transform: scale(1.08) translateX(3%) translateZ(0); }
+}
+
+.slideshow-img--reverse {
+    animation: panSidewaysReverse 12s infinite linear;
+}
+
+.project-item--slideshow > .project-number,
+.project-item--slideshow > .project-content,
+.project-item--slideshow > .project-link {
+    position: relative;
+    z-index: 2;
+}
+.project-item--slideshow .project-title {
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+.project-item--slideshow .project-desc {
+    color: rgba(255,255,255,0.9);
 }
 
 .placeholder-item {
@@ -90,6 +233,48 @@
     color: var(--text-muted);
     line-height: 1.65;
     max-width: 480px;
+}
+
+.project-tech-stack {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.tech-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--brand-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-right: 0.35rem;
+    font-weight: 600;
+}
+
+.tech-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-accent);
+    background: rgba(255, 94, 0, 0.05); /* Very subtle primary tint */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-item:hover .tech-pill {
+    border-color: rgba(255, 94, 0, 0.25);
+    background: rgba(255, 94, 0, 0.08);
+    color: #fff;
+}
+
+.tech-pill:hover {
+    background: rgba(255, 94, 0, 0.15);
+    border-color: var(--brand-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 94, 0, 0.15);
 }
 
 .project-link {
@@ -174,6 +359,39 @@
     letter-spacing: 0.2em;
 }
 
+/* ---- Image Certificate Modifiers ---- */
+.cert-card--image {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+}
+.cert-card--image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 11px;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cert-card--image:hover img {
+    transform: scale(1.05);
+}
+.cert-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.2) 60%, transparent 100%);
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+}
+.cert-overlay .cert-title {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
 @media (max-width: 768px) {
     .project-item {
         grid-template-columns: 50px 1fr;
@@ -181,5 +399,148 @@
     }
     .project-link {
         grid-column: 2;
+    }
+}
+
+
+/* =========================================
+   UNITY TERMINAL MODAL STYLES 
+   ========================================= */
+.unity-modal {
+    max-width: 900px !important;
+}
+
+.unity-terminal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.unity-terminal-card {
+    background: rgba(10, 10, 15, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+}
+
+.unity-card-wide {
+    grid-column: 1 / -1;
+}
+
+.unity-wide-split {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+.wide-col {
+    flex: 1;
+    min-width: 300px;
+}
+
+.unity-card-header {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed rgba(255,255,255,0.15);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.unity-data-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.unity-data-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,0.7);
+}
+
+.u-key { color: rgba(255,255,255,0.5); }
+.u-val { text-align: right; }
+.u-heading { 
+    color: var(--brand-primary) !important; 
+    margin-top: 0.5rem;
+}
+.u-spacer { height: 0.5rem; }
+
+.target-green { color: #00ff88; text-shadow: 0 0 5px rgba(0,255,136,0.3); }
+.target-red { color: #ff3366; }
+.highlight { color: #fff; font-weight: 600; }
+
+.unity-download-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.unity-download-btn {
+    display: inline-block;
+    background: var(--brand-primary);
+    color: #000;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 94, 0, 0.4);
+    cursor: default;
+}
+
+.unity-download-btn:hover {
+    background: var(--brand-secondary);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 30px rgba(255, 184, 0, 0.6);
+}
+
+/* Unity Modal & Project Spacing Mobile Overrides */
+@media (max-width: 768px) {
+    .project-list {
+        gap: 5rem;
+    }
+    .unity-terminal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+    .unity-card-header {
+        font-size: 0.95rem;
+    }
+    .unity-data-list li {
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+    }
+    .unity-wide-split {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .wide-col {
+        min-width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .unity-terminal-card {
+        padding: 1rem;
     }
 }

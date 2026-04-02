@@ -30,6 +30,18 @@
 </head>
 
 <body>
+    <!-- =========================================
+         SITE PRELOADER
+    ========================================= -->
+    <div id="site-loader">
+        <div class="loader-content">
+            <div class="loader-logo">H.N.</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar-fill" id="loader-fill"></div>
+            </div>
+            <div class="loader-text" id="loader-text">INITIALIZING CORE SYSTEMS... 0%</div>
+        </div>
+    </div>
 
     <!-- Custom Cursor -->
     <div class="cursor-dot" id="cursorDot"></div>
@@ -37,9 +49,6 @@
 
     <!-- Scroll progress indicator -->
     <div id="scroll-progress"></div>
-
-    <!-- Page load overlay -->
-    <div id="page-loader"></div>
 
     <!-- ============================================================
          HEADER / SIDEBAR NAV
@@ -50,19 +59,18 @@
             <a href="#hero" class="nav-item">Home</a>
             <a href="#about" class="nav-item">About</a>
             <a href="#timeline" class="nav-item">Journey</a>
-            <a href="#languages" class="nav-item">Languages</a>
-            <a href="#tools" class="nav-item">Tools</a>
+            <a href="#founders" class="nav-item">Network</a>
             <a href="#projects" class="nav-item">Projects</a>
-            <a href="#myworks" class="nav-item">My Works</a>
-            <a href="#founders" class="nav-item">Founders</a>
-            <a href="#certificates" class="nav-item">Achievements</a>
+            <a href="#tech-stack" class="nav-item">Expertise</a>
+            <a href="#myworks" class="nav-item">Experience</a>
+            <a href="#training" class="nav-item">Training</a>
+            <a href="#certifications" class="nav-item">Credentials</a>
+            <a href="#education" class="nav-item">Education</a>
             <a href="#contact" class="nav-btn">Get in Touch</a>
         </nav>
     </header>
 
-    <main class="smooth-scroll-wrapper">
-
-        <!-- ============================================================
+    <main class="smooth-scroll-wrapper"><!-- ============================================================
              1. HERO — Asymmetric Split Layout
         ============================================================ -->
         <section id="hero" class="hero-section">
@@ -172,10 +180,8 @@
                 <span class="scroll-label">SCROLL</span>
                 <div class="scroll-line"></div>
             </div>
-        </section>
-
-        <!-- ============================================================
-             2. ABOUT ME — Bold statement layout
+        </section><!-- ============================================================
+             1. ABOUT ME — Bold statement layout
         ============================================================ -->
         <section id="about" class="about-section">
             <div class="container">
@@ -214,10 +220,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- ============================================================
-             3. TIMELINE — Horizontal Journey
+        </section><!-- ============================================================
+             2. TIMELINE — Horizontal Journey
         ============================================================ -->
         <section id="timeline" class="journey-wrapper">
             <div class="journey-container">
@@ -257,6 +261,7 @@
                         <h3 class="j-title">First Impact</h3>
                         <p class="j-text">YouTube channel achieved monetization — generating real income and
                             contributing meaningfully to the family's financial stability.</p>
+                        <a href="https://docs.google.com/document/d/1Il15IBIpcU5UPw4YctnHEH-sY7fPSHmsxJObVEGoJlE/edit?usp=sharing" target="_blank" class="project-link" style="margin-top: 1rem; display: inline-block; font-size: 0.85rem; padding: 0.4rem 1rem;">View &#8599;</a>
                     </div>
                 </div>
 
@@ -275,7 +280,11 @@
                         <div class="j-year">05</div>
                         <div class="j-period">2023 – 2026</div>
                         <h3 class="j-title">Development &amp; Innovation</h3>
-                        <p class="j-text">I have dedicated my life to researching and building advanced AI frameworks, leading to the creation of the first product under the Cyber AI Era Model — part of a larger visionary project. Along this journey, I continuously enhance my technical expertise, problem-solving abilities, and innovation-driven mindset to contribute meaningfully to the future of intelligent systems.</p>
+                        <p class="j-text">I have dedicated my life to researching and building advanced AI frameworks,
+                            leading to the creation of the first product under the Cyber AI Era Model — part of a larger
+                            visionary project. Along this journey, I continuously enhance my technical expertise,
+                            problem-solving abilities, and innovation-driven mindset to contribute meaningfully to the
+                            future of intelligent systems.</p>
                     </div>
                 </div>
 
@@ -285,30 +294,190 @@
 
             <div class="journey-progress-line"></div>
             <div class="journey-sparkle" id="journeySparkle"></div>
-        </section>
+        </section><!-- ============================================================
+             3. FOUNDERS — Alliance Section
+        ============================================================ -->
+        <section id="founders" class="founders-section">
+            <div class="container">
 
-        <!-- ============================================================
+                <div class="section-header">
+                    <span class="section-eyebrow">Network</span>
+                    <h2 class="section-heading holo-text fade-up">ALLIANCE &amp;<br>FOUNDERS</h2>
+                </div>
+
+                <!-- NeuroSensora × CAF Feature Card -->
+                <div class="caf-card fade-up">
+                    <div class="caf-card-inner">
+                        <div class="caf-left"
+                            style="display:flex; flex-direction:column; align-items:center; text-align:center; width:100%;">
+                            <span class="caf-badge">NeuroSensora × CAF</span>
+                            <h3 class="caf-title">NeuroSensora × CAF</h3>
+                            <p class="caf-vision" style="max-width: 600px; margin:0 auto;">A parent alliance integrating
+                                neurotechnology research with a global
+                                creator ecosystem, built to scale innovation across industries.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Founder Cards -->
+                <div class="founders-grid">
+                    <div class="founder-card fade-up">
+                        <div class="founder-avatar">HN</div>
+                        <div class="founder-info">
+                            <h4 class="founder-name">Harsh Nag</h4>
+                            <span class="founder-role">Founder &amp; CEO</span>
+                            <p class="founder-desc">AI innovator, researcher, and YTFFIN'22 online meet partner.
+                                Building scalable intelligent systems and next-generation technologies.</p>
+                        </div>
+                    </div>
+
+                    <div class="founder-card fade-up">
+                        <div class="founder-avatar">HR</div>
+                        <div class="founder-info">
+                            <h4 class="founder-name">Harry</h4>
+                            <span class="founder-role">Co-Founder &amp; Network Lead</span>
+                            <p class="founder-desc">International creator and YTFFIN'22 online meet partner. Building
+                                and scaling global creator ecosystems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center-btn fade-up">
+                    <button class="submit-btn">Know More &rarr;</button>
+                </div>
+            </div>
+        </section><!-- ============================================================
+             4. PROJECTS — Editorial Numbered List
+        ============================================================ -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <span class="section-eyebrow">Selected Projects</span>
+                    <h2 class="section-heading holo-text fade-up">PROJECTS</h2>
+                </div>
+
+                <div class="projects-list">
+
+                    <article class="project-item project-item--video fade-up">
+                        <video autoplay loop muted playsinline class="project-video-bg">
+                            <source src="./Video/Game 3d Video Unreal Engine.mp4" type="video/mp4">
+                        </video>
+                        <div class="project-video-overlay"></div>
+
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag" style="border-color:rgba(255,255,255,0.2)">Game Dev</span>
+                                <span class="project-tag" style="border-color:rgba(255,255,255,0.2)">2019–2021</span>
+                            </div>
+                            <h3 class="project-title">Immersive 3D Environments</h3>
+                            <p class="project-desc">Early-stage game development projects exploring structural design, interactive logic, and real-time rendering — forming the technical foundation for later research work.</p>
+                            <div class="project-tech-stack">
+                                <span class="tech-label">Tech Stack:</span>
+                                <span class="tech-pill">Unity Engine</span>
+                                <span class="tech-pill">Blender</span>
+                                <span class="tech-pill">Shader Graph</span>
+                                <span class="tech-pill">C++</span>
+                            </div>
+                        </div>
+                        <a class="project-link openUnityModalBtn" style="cursor:pointer;"
+                            title="Access Module Panel">View &#8599;</a>
+                    </article>
+
+                    <article class="project-item project-item--slideshow fade-up">
+                        <div class="slideshow-bg">
+                            <img src="./Images/SLD3.jpg" class="slideshow-img" alt="SLD 3">
+                            <img src="./Images/SLD2.jpg" class="slideshow-img" alt="SLD 2">
+                            <img src="./Images/SLD1.jpg" class="slideshow-img" alt="SLD 1">
+                        </div>
+                        <div class="project-video-overlay"></div>
+
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag" style="border-color:rgba(255,255,255,0.2)">AI &amp;
+                                    Education</span>
+                                <span class="project-tag" style="border-color:rgba(255,255,255,0.2)">2024–2026</span>
+                            </div>
+                            <h3 class="project-title">Smart Learning Disabilities Detection System</h3>
+                            <p class="project-desc">AI-powered system for early detection and analysis of learning disabilities, enabling personalised academic support through intelligent pattern recognition and cognitive assessment models.</p>
+                            <div class="project-tech-stack">
+                                <span class="tech-label">Tech Stack:</span>
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Machine Learning (Scikit-learn)</span>
+                                <span class="tech-pill">HTML/CSS</span>
+                                <span class="tech-pill">Flask / API Integration</span>
+                            </div>
+                        </div>
+                        <a href="https://harshnag1.github.io/Technology-Assisted-System-for-Identifying-Learning-Disabilities-/"
+                            target="_blank" class="project-link">LIVE &rarr;</a>
+                    </article>
+
+                    <article class="project-item project-item--slideshow fade-up">
+                        <div class="slideshow-bg">
+                            <img src="./Images/Cyber_ai_era.jpg" class="slideshow-img slideshow-img--reverse"
+                                alt="Cyber AI Era Preview 1">
+                            <img src="./Images/Cyber_ai_era1.jpg" class="slideshow-img slideshow-img--reverse"
+                                alt="Cyber AI Era Preview 2">
+                            <img src="./Images/Cyber_ai_era2.jpg" class="slideshow-img slideshow-img--reverse"
+                                alt="Cyber AI Era Preview 3">
+                        </div>
+                        <div class="project-video-overlay"></div>
+
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag" style="border-color:rgba(255,255,255,0.2)">Cybersecurity ·
+                                    AI</span>
+                                <span class="project-tag" style="border-color:rgba(255,255,255,0.2)">2024–2026</span>
+                            </div>
+                            <h3 class="project-title">Cyber AI ERA 2.0</h3>
+                            <p class="project-desc">An intelligent cyber-security product capable of solving CTFs and cyber challenges with high accuracy, supporting concurrent sessions for up to 20 users with live contextual guidance.</p>
+                            <div class="project-tech-stack">
+                                <span class="tech-label">Tech Stack:</span>
+                                <span class="tech-pill">OWN ERA AI Model</span>
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Linux Scripting</span>
+                                <span class="tech-pill">Networking</span>
+                                <span class="tech-pill">API/pipeline workflow Systems.</span>
+                            </div>
+                        </div>
+                        <a href="https://aistudio.instagram.com/ai/25503602932597242?utm_source=ai_agent"
+                            target="_blank" class="project-link">LIVE &rarr;</a>
+                    </article>
+
+                    <article class="project-item fade-up">
+                        <div class="project-number">04</div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Cybersecurity · AI</span>
+                                <span class="project-tag">2025–2026</span>
+                            </div>
+                            <h3 class="project-title">Cyber AI ERA 3.0</h3>
+                            <p class="project-desc">Lightweight Windows OS automation agent with Microsoft Store availability. Handles daily tasks autonomously, delivers live feedback on CTF solving, and operates seamlessly as a desktop-native AI assistant.</p>
+                            <div class="project-tech-stack">
+                                <span class="tech-label">Tech Stack:</span>
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Own Era Model</span>
+                                <span class="tech-pill">Ports workflow</span>
+                                <span class="tech-pill">Linux Scripting</span>
+                                <span class="tech-pill">Networking</span>
+                                <span class="tech-pill">API/Pipeline Systems.</span>
+                            </div>
+                        </div>
+                        <a href="https://aistudio.instagram.com/ai/25503602932597242?utm_source=ai_agent"
+                            target="_blank" class="project-link">LIVE &rarr;</a>
+                    </article>
+
+                </div>
+            </div>
+        </section><!-- ============================================================
              2.1 TECH STACK — Horizontal Scroll
         ============================================================ -->
         <section id="tech-stack" class="horizontal-wrapper">
             <div class="horizontal-container">
-
-                <!-- Panel 1: Languages Known -->
-                <section id="languages" class="horizontal-panel">
-                    <div class="panel-content">
-                        <span class="section-eyebrow">Proficiency</span>
-                        <h2 class="panel-title">LANGUAGES</h2>
-                        <div class="tech-grid">
-                            <div class="tech-card"><span class="tech-icon">Py</span>Python</div>
-                            <div class="tech-card"><span class="tech-icon">C</span>C</div>
-                            <div class="tech-card"><span class="tech-icon">C+</span>C++</div>
-                            <div class="tech-card"><span class="tech-icon">Jv</span>Java</div>
-                            <div class="tech-card"><span class="tech-icon">SQ</span>SQL</div>
-                            <div class="tech-card"><span class="tech-icon">Sh</span>Bash</div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Panel 2: Cybersecurity Arsenal — Categorised -->
+                <!-- Panel 1: Cybersecurity Arsenal — Categorised -->
                 <section id="tools" class="horizontal-panel">
                     <div class="panel-content">
                         <span class="section-eyebrow">Hands-On</span>
@@ -377,87 +546,35 @@
                     </div>
                 </section>
 
+                <!-- Panel 1: Languages Known -->
+                <section id="skills" class="horizontal-panel">
+                    <div class="panel-content">
+                        <span class="section-eyebrow">Proficiency</span>
+                        <h2 class="panel-title">SKILLS</h2>
+                        <div class="tech-grid">
+                            <div class="tech-card"><span class="tech-icon">Py</span>Python</div>
+                            <div class="tech-card"><span class="tech-icon">C</span>C</div>
+                            <div class="tech-card"><span class="tech-icon">C+</span>C++</div>
+                            <div class="tech-card"><span class="tech-icon">Jv</span>Java</div>
+                            <div class="tech-card"><span class="tech-icon">SQ</span>SQL</div>
+                            <div class="tech-card"><span class="tech-icon">Sh</span>Bash</div>
+                        </div>
+                        <div class="soft-skills-block">
+                            <span class="arsenal-label"
+                                style="display:block;margin-bottom:0.8rem;margin-top:1.6rem">Soft Skills</span>
+                            <div class="arsenal-tools">
+                                <span class="arsenal-pill">Leadership</span>
+                                <span class="arsenal-pill">Event Management</span>
+                                <span class="arsenal-pill">Work Ethic &amp; Responsibility</span>
+                                <span class="arsenal-pill">Adaptability</span>
+                                <span class="arsenal-pill">Problem-Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
-        </section>
-
-        <!-- ============================================================
-             4. PROJECTS — Editorial Numbered List
-        ============================================================ -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-
-                <div class="section-header">
-                    <span class="section-eyebrow">Selected Projects</span>
-                    <h2 class="section-heading holo-text fade-up">PROJECTS</h2>
-                </div>
-
-                <div class="projects-list">
-
-                    <article class="project-item fade-up">
-                        <div class="project-number">01</div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">Game Dev</span>
-                                <span class="project-tag">2019–2021</span>
-                            </div>
-                            <h3 class="project-title">Immersive 3D Environments</h3>
-                            <p class="project-desc">Early-stage game development projects exploring structural design,
-                                interactive logic, and real-time rendering — forming the technical foundation for later
-                                research work.</p>
-                        </div>
-                        <a href="#" class="project-link">View &rarr;</a>
-                    </article>
-
-                    <article class="project-item fade-up">
-                        <div class="project-number">02</div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">AI &amp; Education</span>
-                                <span class="project-tag">2024–2026</span>
-                            </div>
-                            <h3 class="project-title">Smart Learning Disabilities Detection System</h3>
-                            <p class="project-desc">AI-powered system for early detection and analysis of learning
-                                disabilities, enabling personalised academic support through intelligent pattern
-                                recognition and cognitive assessment models.</p>
-                        </div>
-                        <a href="#" class="project-link">View &rarr;</a>
-                    </article>
-
-                    <article class="project-item fade-up">
-                        <div class="project-number">03</div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">Cybersecurity · AI</span>
-                                <span class="project-tag">2024–2026</span>
-                            </div>
-                            <h3 class="project-title">Cyber AI ERA 2.0</h3>
-                            <p class="project-desc">An intelligent cyber-security product capable of solving CTFs and
-                                cyber challenges with high accuracy, supporting concurrent sessions for up to 20 users
-                                with live contextual guidance.</p>
-                        </div>
-                        <a href="#" class="project-link">View &rarr;</a>
-                    </article>
-
-                    <article class="project-item fade-up">
-                        <div class="project-number">04</div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">Cybersecurity · AI</span>
-                                <span class="project-tag">2025–2026</span>
-                            </div>
-                            <h3 class="project-title">Cyber AI ERA 3.0</h3>
-                            <p class="project-desc">Lightweight Windows OS automation agent with Microsoft Store
-                                availability. Handles daily tasks autonomously, delivers live feedback on CTF solving,
-                                and operates seamlessly as a desktop-native AI assistant.</p>
-                        </div>
-                        <a href="#" class="project-link">View &rarr;</a>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
+        </section><!-- ============================================================
              5. MY WORKS
         ============================================================ -->
         <section id="myworks" class="ventures-section container">
@@ -526,70 +643,87 @@
                 </div>
 
             </div>
-        </section>
-
-        <!-- ============================================================
-             6. FOUNDERS — Alliance Section
+        </section><!-- ============================================================
+             7b. TRAINING
         ============================================================ -->
-        <section id="founders" class="founders-section">
-            <div class="container">
+        <section id="training" class="ventures-section container">
 
-                <div class="section-header">
-                    <span class="section-eyebrow">Network</span>
-                    <h2 class="section-heading holo-text fade-up">ALLIANCE &amp;<br>FOUNDERS</h2>
-                </div>
+            <div class="section-header">
+                <span class="section-eyebrow">Industry Experience</span>
+                <h2 class="section-heading holo-text fade-up">TRAINING</h2>
+            </div>
 
-                <!-- NeuroSensora × CAF Feature Card -->
-                <div class="caf-card fade-up">
-                    <div class="caf-card-inner">
-                        <div class="caf-left">
-                            <span class="caf-badge">NeuroSensora × CAF</span>
-                            <h3 class="caf-title">NeuroSensora × CAF</h3>
-                            <p class="caf-vision">A parent alliance integrating neurotechnology research with a global
-                                creator ecosystem, built to scale innovation across industries.</p>
-                        </div>
-                        <div class="caf-right">
-                            <div class="caf-stat-big">
-                                <span class="caf-stat-num counter" data-target="28">0</span>
-                                <span class="caf-stat-unit">M+</span>
-                                <span class="caf-stat-desc">Globally Connected</span>
-                            </div>
-                            <div class="caf-stat-sub">Expanding to 50M – 55M+</div>
-                        </div>
+            <div class="ventures-list">
+                <div class="venture-item fade-up">
+                    <div class="venture-number">01</div>
+                    <div class="venture-content">
+                        <h3 class="venture-title">Cybersecurity Virtual Experience Program — Mastercard</h3>
+                        <p class="venture-desc">Performed cybersecurity threat analysis and identified phishing and
+                            social engineering attacks. Conducted vulnerability assessments, recommended security
+                            awareness measures, and handled incident response simulations using Wireshark, Splunk, Nmap,
+                            and OSINT frameworks.</p>
                     </div>
-                </div>
-
-                <!-- Founder Cards -->
-                <div class="founders-grid">
-                    <div class="founder-card fade-up">
-                        <div class="founder-avatar">HN</div>
-                        <div class="founder-info">
-                            <h4 class="founder-name">Harsh Nag</h4>
-                            <span class="founder-role">Founder &amp; CEO</span>
-                            <p class="founder-desc">AI innovator, researcher, and YTFFIN'22 online meet partner.
-                                Building scalable intelligent systems and next-generation technologies.</p>
-                        </div>
+                    <div class="venture-meta">
+                        <a href="https://www.theforage.com/simulations/mastercard/cybersecurity-t8ye" target="_blank"
+                            class="venture-role" style="text-decoration:none;color:var(--brand-primary)">View ↗</a>
+                        <span class="venture-tag">Virtual · Mastercard</span>
                     </div>
-
-                    <div class="founder-card fade-up">
-                        <div class="founder-avatar">HR</div>
-                        <div class="founder-info">
-                            <h4 class="founder-name">Harry</h4>
-                            <span class="founder-role">Co-Founder &amp; Network Lead</span>
-                            <p class="founder-desc">International creator and YTFFIN'22 online meet partner. Building
-                                and scaling global creator ecosystems.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="center-btn fade-up">
-                    <button class="submit-btn">Know More &rarr;</button>
                 </div>
             </div>
-        </section>
+        </section><!-- ============================================================
+             7a. CERTIFICATIONS
+        ============================================================ -->
+        <section id="certifications" class="certificates-section container">
 
-        <!-- ============================================================
-             7. ACHIEVEMENTS
+            <div class="section-header">
+                <span class="section-eyebrow">Credentials</span>
+                <h2 class="section-heading fade-up">CERTIFICATIONS</h2>
+            </div>
+
+            <div class="certs-grid">
+
+                <!-- 1. ISC2 -->
+                <div class="cert-card fade-up" style="cursor:default">
+                    <div class="cert-icon" style="font-family:var(--font-mono);font-size:0.8rem;letter-spacing:.05em">CC
+                    </div>
+                    <span class="cert-title">ISC2 Certified in Cybersecurity (CC)</span>
+                    <span class="cert-sub">International Information System Security Certification Consortium</span>
+                    <span class="cert-arrow" style="color:rgba(255,184,0,0.7)">On-Going ⟳</span>
+                </div>
+
+                <!-- 2. OHSC AGI -->
+                <div class="cert-card cert-card--image fade-up">
+                    <img src="./Certifications/OHSC.png" alt="Artificial General Intelligence Certificate">
+                    <div class="cert-overlay">
+                        <span class="cert-title">Artificial General Intelligence</span>
+                        <span class="cert-sub">Oxford Home Study Centre</span>
+                        <span class="cert-arrow"
+                            style="margin-top:0.5rem; padding-top:0; color:var(--brand-primary); pointer-events:none;">Successfully
+                            Completed ✓</span>
+                    </div>
+                </div>
+
+                <!-- 3. CEH -->
+                <div class="cert-card fade-up" style="cursor:default">
+                    <div class="cert-icon" style="font-family:var(--font-mono);font-size:0.8rem;letter-spacing:.05em">
+                        CEH</div>
+                    <span class="cert-title">Certified Ethical Hacker (CEH) v13</span>
+                    <span class="cert-sub">EC-Council · CEH v13 with AI Integration</span>
+                    <span class="cert-arrow" style="color:rgba(255,184,0,0.7)">On-Going ⟳</span>
+                </div>
+
+                <!-- 4. SAP IMAGE CARD -->
+                <div class="cert-card cert-card--image fade-up">
+                    <img src="./Certifications/SAP.jpg" alt="SAP Hackathon Certificate">
+                    <div class="cert-overlay">
+                        <span class="cert-title">SAP Company × LPU</span>
+                        <span class="cert-sub">National Level Hackathon</span>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- ============================================================
+             6. ACHIEVEMENTS
         ============================================================ -->
         <section id="certificates" class="certificates-section container">
 
@@ -639,9 +773,46 @@
                     <span class="cert-arrow">View &rarr;</span>
                 </a>
             </div>
-        </section>
+        </section><!-- ============================================================
+             7. EDUCATION
+        ============================================================ -->
+        <section id="education" class="ventures-section container">
 
-        <!-- ============================================================
+            <div class="section-header">
+                <span class="section-eyebrow">Academic Background</span>
+                <h2 class="section-heading holo-text fade-up">EDUCATION</h2>
+            </div>
+
+            <div class="ventures-list">
+
+                <div class="venture-item fade-up">
+                    <div class="venture-number">01</div>
+                    <div class="venture-content">
+                        <h3 class="venture-title">Lovely Professional University</h3>
+                        <p class="venture-desc">Bachelor of Technology — Computer Science &amp; Engineering<br>
+                            CGPA: 7.55 &nbsp;|&nbsp; Phagwara, Punjab</p>
+                    </div>
+                    <div class="venture-meta">
+                        <span class="venture-role">B.Tech · CSE</span>
+                        <span class="venture-tag">Aug 2023 – Present</span>
+                    </div>
+                </div>
+
+                <div class="venture-item fade-up">
+                    <div class="venture-number">02</div>
+                    <div class="venture-content">
+                        <h3 class="venture-title">Tender Heart Senior Secondary School</h3>
+                        <p class="venture-desc">Primary to Senior Secondary Education (Class I – XII)<br>
+                            TGPA: 8.00 &nbsp;|&nbsp; Ranchi, Jharkhand</p>
+                    </div>
+                    <div class="venture-meta">
+                        <span class="venture-role">Class I – XII</span>
+                        <span class="venture-tag">Apr 2007 – Mar 2023</span>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- ============================================================
              8. CONTACT
         ============================================================ -->
         <section id="contact" class="contact-section">
@@ -696,12 +867,30 @@
 
     <!-- Custom JS -->
     <script src="js/bg-animation.js"></script>
+    <script src="js/bg-wave.js"></script>
     <script src="js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- ================================================================
          PATENTS MODAL — Glassmorphism Overlay
     ================================================================ -->
     <div class="patents-modal-overlay" id="patentsModal" aria-modal="true" role="dialog" aria-label="Airing Patents">
-        <div class="patents-modal-box">
+        <div class="patents-modal-box" data-lenis-prevent>
             <div class="patents-modal-header">
                 <div>
                     <span class="patents-eyebrow">Intellectual Property</span>
@@ -758,6 +947,134 @@
             </div>
         </div>
     </div>
+
+    <!-- ============================================================
+         UNITY MODAL - Terminal Glassmorphism
+    ============================================================ -->
+    <div class="patents-modal-overlay" id="unityModal" aria-modal="true" role="dialog" aria-label="Unity Access Panel">
+        <div class="patents-modal-box unity-modal" data-lenis-prevent>
+            <div class="patents-modal-header">
+                <div style="display:flex; flex-direction:column; gap:0.3rem;">
+                    <span class="patents-modal-eyebrow" style="color:#00ff88;">&#9679; Connection: Secure</span>
+                    <h2 class="patents-modal-title">UNITY MODULE ACCESS</h2>
+                </div>
+                <button class="patents-close-btn" id="closeUnityModal" aria-label="Close unity modal">&times;</button>
+            </div>
+
+            <p class="patents-modal-sub" style="margin-bottom:1.5rem;">Access Panel &bull; IL2CPP Runtime</p>
+
+            <div class="unity-terminal-grid">
+
+                <!-- Connection Info -->
+                <div class="unity-terminal-card">
+                    <div class="unity-card-header">&#128279; Connection Information</div>
+                    <ul class="unity-data-list">
+                        <li><span class="u-key">Engine:</span> <span class="u-val highlight">Unity 2022.3 LTS</span>
+                        </li>
+                        <li><span class="u-key">Runtime Mode:</span> <span class="u-val">IL2CPP</span></li>
+                        <li><span class="u-key">Project ID:</span> <span class="u-val">UNITY-PRJ-78421</span></li>
+                        <li><span class="u-key">Session ID:</span> <span class="u-val">SES-9932-AX71</span></li>
+                        <li><span class="u-key">Server Endpoint:</span> <span class="u-val">api.unitymodule.local</span>
+                        </li>
+                        <li><span class="u-key">Status:</span> <span class="u-val target-green">Connected</span></li>
+                        <li><span class="u-key">Latency:</span> <span class="u-val target-green">---</span></li>
+                        <li><span class="u-key">Region:</span> <span class="u-val">Asia (Mumbai)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Access Info -->
+                <div class="unity-terminal-card">
+                    <div class="unity-card-header">&#128273; Access Credentials</div>
+                    <ul class="unity-data-list">
+                        <li><span class="u-key">Access ID:</span> <span class="u-val">ACC-UNITY-90821</span></li>
+                        <li><span class="u-key">Module ID:</span> <span class="u-val">MOD-SLD-77421</span></li>
+                        <li><span class="u-key">User Role:</span> <span class="u-val">Developer</span></li>
+                        <li><span class="u-key">Access Level:</span> <span class="u-val highlight">Full Access</span>
+                        </li>
+                        <li><span class="u-key">Authentication:</span> <span class="u-val target-green">Verified</span>
+                        </li>
+                        <li><span class="u-key">License Type:</span> <span class="u-val">Educational / Research</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Module Info -->
+                <div class="unity-terminal-card">
+                    <div class="unity-card-header">&#9881;&#65039; Module Information</div>
+                    <ul class="unity-data-list">
+                        <li><span class="u-key">Module Name:</span> <span class="u-val">SLD Screening System</span></li>
+                        <li><span class="u-key">Version:</span> <span class="u-val">v1.2.0</span></li>
+                        <li><span class="u-key">Build Type:</span> <span class="u-val highlight">Release</span></li>
+                        <li><span class="u-key">Build Platform:</span> <span class="u-val">WebGL / Windows</span></li>
+                        <li class="u-spacer"></li>
+                        <li class="u-heading">Dependencies:</li>
+                        <li><span class="u-key">Unity UI Toolkit</span> <span class="u-val target-green">&#10004;</span>
+                        </li>
+                        <li><span class="u-key">JSON Parser</span> <span class="u-val target-green">&#10004;</span></li>
+                        <li><span class="u-key">Input System</span> <span class="u-val target-green">&#10004;</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Package Details -->
+                <div class="unity-terminal-card">
+                    <div class="unity-card-header">&#128230; Package Details</div>
+                    <ul class="unity-data-list">
+                        <li><span class="u-key">Package ID:</span> <span class="u-val">PKG-SLD-2219</span></li>
+                        <li><span class="u-key">Package Name:</span> <span class="u-val"
+                                style="font-size:0.8rem;">sld_module_v1.2.unitypackage</span></li>
+                        <li><span class="u-key">Size:</span> <span class="u-val">186 MB</span></li>
+                        <li><span class="u-key">Compression:</span> <span class="u-val target-green">Enabled</span></li>
+                        <li><span class="u-key">Last Updated:</span> <span class="u-val">2026-04-03</span></li>
+                        <li><span class="u-key">Checksum:</span> <span class="u-val highlight">9F3A-77BC-21D8</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- wide block -->
+                <div class="unity-terminal-card unity-card-wide">
+                    <div class="unity-wide-split">
+                        <div class="wide-col">
+                            <div class="unity-card-header">&#129115; Download Section</div>
+                            <ul class="unity-data-list">
+                                <li><span class="u-key">Download ID:</span> <span class="u-val">DL-77421-UNITY</span>
+                                </li>
+                                <li><span class="u-key">Status:</span> <span class="u-val target-green">Available</span>
+                                </li>
+                                <li><span class="u-key">Storage:</span> <span class="u-val">Remote Server</span></li>
+                                <li><span class="u-key">Transfer Mode:</span> <span class="u-val">Secure HTTP</span>
+                                </li>
+                                <li><span class="u-key">Est. Time:</span> <span class="u-val">~12 sec</span></li>
+                            </ul>
+                        </div>
+                        <div class="wide-col">
+                            <div class="unity-card-header">&#129534; System Info</div>
+                            <ul class="unity-data-list">
+                                <li class="u-heading">Unity Services:</li>
+                                <li><span class="u-key">Analytics:</span> <span class="u-val">Enabled</span></li>
+                                <li><span class="u-key">Cloud Build:</span> <span
+                                        class="u-val target-green">Connected</span></li>
+                                <li><span class="u-key">Version Control:</span> <span
+                                        class="u-val target-green">Synced</span></li>
+                                <li class="u-spacer"></li>
+                                <li><span class="u-key">Environment:</span> <span
+                                        class="u-val highlight">Production</span></li>
+                                <li><span class="u-key">Debug Mode:</span> <span
+                                        class="u-val target-red">Disabled</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="patents-modal-footer">
+                <span class="patents-footer-note">&#128272; All modules are validated and verified for compatibility
+                    with the current Unity environment.<br>Unauthorized modification or redistribution is
+                    restricted.</span>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

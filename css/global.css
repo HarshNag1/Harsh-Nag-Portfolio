@@ -92,10 +92,7 @@ body {
     -webkit-backface-visibility: hidden;
 }
 
-/* Remove will-change after animation settles to free memory */
-.fade-up.in-view {
-    will-change: auto;
-}
+
 
 
 main {
@@ -429,4 +426,111 @@ html {
     .cursor-ring {
         display: none;
     }
+}
+/* =========================================
+   SITE PRELOADER
+   ========================================= */
+#site-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #030305;
+    z-index: 9999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#site-loader.hide {
+    opacity: 0;
+    transform: scale(1.03);
+    pointer-events: none;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader-logo {
+    font-family: var(--font-heading, "Bebas Neue", sans-serif);
+    font-size: 5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    position: relative;
+    animation: loaderPulse 2.5s infinite alternate ease-in-out;
+}
+
+.loader-bar-container {
+    width: 250px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    margin-top: 2rem;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--brand-primary, #ff5e00);
+    position: absolute;
+    top: 0; 
+    left: 0;
+    box-shadow: 0 0 15px rgba(255, 94, 0, 0.8);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loader-text {
+    margin-top: 1rem;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: textFlicker 1.5s infinite alternate linear;
+}
+
+@keyframes loaderPulse {
+    0% { transform: scale(1); text-shadow: 0 0 10px rgba(255, 94, 0, 0); }
+    100% { transform: scale(1.05); text-shadow: 0 0 30px rgba(255, 94, 0, 0.4); }
+}
+
+@keyframes textFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.5; }
+}
+
+/* Preloader Mobile Optimization */
+@media (max-width: 768px) {
+    .loader-logo {
+        font-size: 3.5rem;
+    }
+    .loader-text {
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    .loader-bar-container {
+        width: 180px;
+    }
+}
+
+/* =========================================
+   MAXIMUM GPU HARDWARE ACCELERATION
+   ========================================= */
+
+
+img, video {
+    /* Stop CPU repaint bottlenecks on heavy media rendering */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }

@@ -4,6 +4,88 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ============================================================
+    // PRELOADER ENGINE & STARTUP SEQUENCE
+    // ============================================================
+    const loader = document.getElementById('site-loader');
+    const loaderFill = document.getElementById('loader-fill');
+    const loaderText = document.getElementById('loader-text');
+
+    if (loader) {
+        document.body.style.overflow = 'hidden';
+
+        // 1. Gather heavy media (Images + Videos)
+        const videos = Array.from(document.querySelectorAll('video'));
+        const images = Array.from(document.querySelectorAll('img'));
+        const mediaPromises = [];
+        videos.forEach(vid => {
+            // Absolute guarantee for looping, bypassing iOS/Safari HTML tag stripping and power-saving pauses
+            vid.addEventListener('ended', function () {
+                this.currentTime = 0;
+                this.play().catch(() => { });
+            });
+
+            if (vid.readyState >= 3) {
+                mediaPromises.push(Promise.resolve());
+            } else {
+                mediaPromises.push(new Promise(resolve => {
+                    vid.addEventListener('canplaythrough', resolve, { once: true });
+                    vid.addEventListener('error', resolve, { once: true });
+                }));
+            }
+        });
+
+        images.forEach(img => {
+            if (img.complete) {
+                mediaPromises.push(Promise.resolve());
+            } else {
+                mediaPromises.push(new Promise(resolve => {
+                    img.addEventListener('load', resolve, { once: true });
+                    img.addEventListener('error', resolve, { once: true });
+                }));
+            }
+        });
+
+        // 2. Fallback timeout to guarantee site loads even on bad connections (max 6.5s)
+        const networkTimeout = new Promise(resolve => setTimeout(resolve, 6500));
+
+        // 3. Fake visually pleasing incremental progress
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+            progress += (Math.random() * 4);
+            if (progress > 94) progress = 94; // Hold at 94% until perfectly loaded
+
+            if (loaderFill) loaderFill.style.width = progress + '%';
+            if (loaderText) loaderText.innerText = 'INITIALIZING... ' + Math.floor(progress) + '%';
+        }, 120);
+
+        // 4. Resolve when all media is capable of smooth playback OR the timeout hits
+        Promise.race([
+            Promise.all(mediaPromises),
+            networkTimeout
+        ]).then(() => {
+            clearInterval(progressInterval);
+
+            if (loaderFill) loaderFill.style.width = '100%';
+            if (loaderText) loaderText.innerText = 'WELCOME HARSH  100%';
+
+            // Dramatic pause before revealing the site
+            setTimeout(() => {
+                loader.classList.add('hide');
+                document.body.style.overflow = ''; // Restore native scrolling for Lenis
+
+                // CRITICAL: Refresh ScrollTrigger once the page is visible and layout is stable
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh();
+                    // Secondary refresh for any delayed layout shifts (images, etc)
+                    setTimeout(() => ScrollTrigger.refresh(), 1500);
+                }
+
+                setTimeout(() => loader.remove(), 850);
+            }, 600);
+        });
+    }
+
+    // ============================================================
     // 0. LENIS SMOOTH SCROLL — Industry-standard momentum scrolling
     // ============================================================
     let lenis;
@@ -29,18 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ============================================================
-    // 0. PAGE LOADER DISMISS
-    // ============================================================
-    const loader = document.getElementById('page-loader');
-    if (loader) {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loader.classList.add('done');
-                setTimeout(() => loader.remove(), 800);
-            }, 600);
-        });
-    }
 
     // ============================================================
     // 0b. SCROLL PROGRESS BAR
@@ -167,12 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 // Element entered viewport — animate in
                 entry.target.classList.add('in-view');
-            } else {
-                // Element left viewport — reset so it re-animates next time
-                entry.target.classList.remove('in-view');
+
+                const media = entry.target.querySelectorAll('video');
+                media.forEach(v => v.play().catch(() => { }));
             }
+            // Removed classList.remove('in-view') to prevent accidental disappearances
         });
-        // NOTE: No unobserve — keeps watching for re-entry
+        // NOTE: No unobserve — keeps watching for re-entry (if needed)
     }, fadeObserverOptions);
 
     document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
@@ -246,6 +317,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: journeyWrapper,
                     pin: true,
+                    pinType: "fixed",
+                    anticipatePin: 1,
                     start: "top top",
                     end: () => `+=${journeyContainer.scrollWidth}`,
                     scrub: 1.2,
@@ -265,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     // PATENTS MODAL — Open / Close
     // ============================================================
-    const patentsModal   = document.getElementById('patentsModal');
+    const patentsModal = document.getElementById('patentsModal');
     const openPatentsBtn = document.getElementById('openPatentsModal');
     const closePatentsBtn = document.getElementById('closePatentsModal');
 
@@ -273,14 +346,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!patentsModal) return;
         patentsModal.classList.add('open');
         document.body.style.overflow = 'hidden'; // Prevent background scroll
+        if (typeof lenis !== 'undefined' && lenis) lenis.stop(); // Stop Lenis Momentum Scroll
     }
     function closePatents() {
         if (!patentsModal) return;
         patentsModal.classList.remove('open');
         document.body.style.overflow = '';
+        if (typeof lenis !== 'undefined' && lenis) lenis.start(); // Restore Lenis Momentum Scroll
     }
 
-    if (openPatentsBtn)  openPatentsBtn.addEventListener('click',  openPatents);
+    if (openPatentsBtn) openPatentsBtn.addEventListener('click', openPatents);
     if (closePatentsBtn) closePatentsBtn.addEventListener('click', closePatents);
 
     // Close when clicking backdrop (outside the box)
@@ -296,4 +371,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     console.log("✦ Portfolio JS Loaded — Awwwards Tier 2026");
+
+    // ============================================================
+    // UNITY MODAL - Open / Close
+    // ============================================================
+    const unityModal = document.getElementById('unityModal');
+    const openUnityBtns = document.querySelectorAll('.openUnityModalBtn');
+    const closeUnityBtn = document.getElementById('closeUnityModal');
+
+    function openUnity(e) {
+        if (e) e.preventDefault();
+        if (!unityModal) return;
+        unityModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (typeof lenis !== 'undefined' && lenis) lenis.stop();
+    }
+    function closeUnity() {
+        if (!unityModal) return;
+        unityModal.classList.remove('open');
+        document.body.style.overflow = '';
+        if (typeof lenis !== 'undefined' && lenis) lenis.start();
+    }
+
+    openUnityBtns.forEach(btn => btn.addEventListener('click', openUnity));
+    if (closeUnityBtn) closeUnityBtn.addEventListener('click', closeUnity);
+
+    if (unityModal) {
+        unityModal.addEventListener('click', (e) => {
+            if (e.target === unityModal) closeUnity();
+        });
+    }
+
 });
