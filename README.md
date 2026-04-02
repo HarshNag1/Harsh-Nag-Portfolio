@@ -1,4 +1,6 @@
-# Harsh Nag — Cyber AI Systems
+<p align="center">
+  <strong style="font-size: 28px;">Harsh Nag — Cyber AI Systems</strong>
+</p>
 
 <p align="center">
   <a href="https://harshnag1.github.io/Harsh-Nag-Portfolio/">
